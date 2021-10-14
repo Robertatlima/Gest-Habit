@@ -43,7 +43,6 @@ const SignUp = () => {
     axios
       .post("https://kenzie-habits.herokuapp.com/users/", requestData)
       .then((response) => {
-        console.log(response);
         history.push(`/login`);
       })
       .catch((err) => {

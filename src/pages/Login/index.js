@@ -1,25 +1,23 @@
 import * as C from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField, Button } from "@material-ui/core";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useUser } from "../../providers/User";
+import { useAuth } from "../../providers/Auth";
 
-export const Login = () => {
+const Login = () => {
+  const { setUser } = useUser();
+  const { setAuth } = useAuth();
+
+  const history = useHistory();
+
   const schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
-    email: yup.string().email("Email Invalido").required("Campo Obrigatório"),
-    password: yup
-      .string()
-      .min(8, "Senha inválida")
-      .required("Campo Obrigatório")
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        "Mínimo de 8 digitos, um caracter especial e uma letra maiúscula"
-      ),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")], "Email não confere"),
+    username: yup.string().required("Campo Obrigatório"),
+    password: yup.string().required("Campo Obrigatório"),
   });
   const {
     register,
@@ -27,27 +25,44 @@ export const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const handleForm = (data) => {
+    axios
+      .post("https://kenzie-habits.herokuapp.com/sessions/", data)
+      .then((response) => {
+        localStorage.clear();
+        localStorage.setItem("token", response.data.access);
+
+        const { user_id } = jwt_decode(localStorage.getItem("token"));
+        setUser({ id: user_id });
+
+        setAuth(true);
+
+        history.push("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <C.Container>
-      <form className="formulario" onSubmit={handleSubmit()}>
+      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
         <div>
           <TextField
             variant="outlined"
             id="email"
-            label="Email"
+            label="Usuário"
             margin="normal"
             size="small"
             color="secondary"
-            {...register("email")}
-            error={!!errors.email}
-            helperText={errors.email?.message}
+            {...register("username")}
+            error={!!errors.username}
+            helperText={errors.username?.message}
           />
         </div>
         <div>
           <TextField
             variant="outlined"
             id="password"
-            label="Password"
+            label="Senha"
             margin="normal"
             size="small"
             color="secondary"
@@ -60,13 +75,15 @@ export const Login = () => {
         <div>
           <Button type="submit" variant="contained" color="secondary">
             {" "}
-            Send
+            Entrar
           </Button>
         </div>
         <p>
-          Don't have an account? <Link to="/signup">sign up</Link>
+          Novo usuário? <Link to="/signup">Cadastre-se</Link>
         </p>
       </form>
     </C.Container>
   );
 };
+
+export default Login;
