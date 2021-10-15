@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
+import Habits from "../pages/Habits";
 
 export const Router = () => {
   return (
@@ -11,14 +12,17 @@ export const Router = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/login">
+        <Route path="/login">
           <Login />
         </Route>
-        <Route exact path="/signup">
+        <Route path="/signup">
           <SignUp />
         </Route>
-        <Route exact path="/dashboard">
+        <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/habits">
+          <Habits />
         </Route>
       </Switch>
     </>
