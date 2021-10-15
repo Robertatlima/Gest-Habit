@@ -1,17 +1,23 @@
 import * as C from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 
 const SignUp = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
+    username: yup
+      .string()
+      .matches(/^[A-Za-z\s]+$/, "Nome deve ter apenas letras")
+      .required("Campo Obrigatório"),
     email: yup.string().email("Email Invalido").required("Campo Obrigatório"),
     password: yup
       .string()
-      .min(8, "Senha inválida")
+      .min(8, "Mínimo 8 caracteres")
       .required("Campo Obrigatório")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
@@ -19,7 +25,7 @@ const SignUp = () => {
       ),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password")], "Email não confere"),
+      .oneOf([yup.ref("password")], "Senha não confere"),
   });
   const {
     register,
@@ -27,20 +33,37 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const handleForm = (data) => {
+    const requestData = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    };
+
+    axios
+      .post("https://kenzie-habits.herokuapp.com/users/", requestData)
+      .then((response) => {
+        history.push(`/login`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <C.Container>
-      <form className="formulario" onSubmit={handleSubmit()}>
+      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
         <div classeName="input">
           <TextField
             variant="outlined"
             id="name"
-            label="Name"
+            label="Nome"
             margin="normal"
             size="small"
             color="secondary"
-            {...register("name")}
-            error={!!errors.name}
-            helperText={errors.name?.message}
+            {...register("username")}
+            error={!!errors.username}
+            helperText={errors.username?.message}
           />
         </div>
         <div classeName="input">
@@ -60,7 +83,7 @@ const SignUp = () => {
           <TextField
             variant="outlined"
             id="password"
-            label="Password"
+            label="Senha"
             margin="normal"
             size="small"
             color="secondary"
@@ -73,7 +96,7 @@ const SignUp = () => {
           <TextField
             variant="outlined"
             id="confirmPassword"
-            label="Confirm Password"
+            label="Confirmar senha"
             margin="normal"
             size="small"
             color="secondary"
@@ -85,11 +108,11 @@ const SignUp = () => {
         <div>
           <Button type="submit" variant="contained" color="secondary">
             {" "}
-            Logar
+            Cadastrar
           </Button>
         </div>
         <p>
-          Have an account? <Link to="/login">sign in</Link>
+          Já possui uma conta? <Link to="/login">Entrar</Link>
         </p>
       </form>
     </C.Container>

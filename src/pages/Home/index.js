@@ -1,5 +1,7 @@
 import * as C from "./styles";
 
-export const Home = () => {
+const Home = () => {
   return <div>HOME</div>;
 };
+
+export default Home;
