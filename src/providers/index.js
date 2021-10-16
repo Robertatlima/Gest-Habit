@@ -5,7 +5,7 @@ const Providers = ({ children }) => {
   return (
     <>
       <AuthProvider>
-        <UserProvider>{children}</UserProvider>;
+        <UserProvider>{children}</UserProvider>
       </AuthProvider>
     </>
   );
