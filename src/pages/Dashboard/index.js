@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 import { useUser } from "../../providers/User";
-import * as C from "./styles";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const history = useHistory();
@@ -28,6 +28,23 @@ const Dashboard = () => {
 
   return (
     <>
+ feature/groups
+      <div>
+        <h1>ID do usuário para buscar na API: {user.id}</h1>
+        {auth ? (
+          <h2>State isLogged: true </h2>
+        ) : (
+          <h2>State isLogged: false </h2>
+        )}
+
+        <Link to="/groups">
+          <button>Groups</button>
+        </Link>
+        <Link to="/allGroups">
+          <button>Descobrir</button>
+        </Link>
+      </div>
+
       {auth ? (
         <div>
           <h1>ID do usuário: {user.id}</h1>
@@ -40,6 +57,7 @@ const Dashboard = () => {
       ) : (
         history.push("/login")
       )}
+ developer
     </>
   );
 };
