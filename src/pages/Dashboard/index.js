@@ -1,6 +1,6 @@
 import { useAuth } from "../../providers/Auth";
 import { useUser } from "../../providers/User";
-import * as C from "./styles";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const { user } = useUser();
@@ -15,6 +15,13 @@ const Dashboard = () => {
         ) : (
           <h2>State isLogged: false </h2>
         )}
+
+        <Link to="/groups">
+          <button>Groups</button>
+        </Link>
+        <Link to="/allGroups">
+          <button>Descobrir</button>
+        </Link>
       </div>
     </>
   );
