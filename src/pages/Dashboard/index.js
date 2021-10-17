@@ -28,6 +28,7 @@ const Dashboard = () => {
 
   return (
     <>
+
       {auth ? (
         <div>
           <h1>ID do usuário: {user.id}</h1>
@@ -36,8 +37,8 @@ const Dashboard = () => {
           <Link to="/habits">
             <Button variant="contained">Habits</Button>
           </Link>
+  <Link to="/groups">
 
-          <Link to="/groups">
             <button>Groups</button>
           </Link>
           <Link to="/allGroups">

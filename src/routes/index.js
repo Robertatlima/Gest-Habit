@@ -3,9 +3,11 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
+
 import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
 import Habits from "../pages/Habits";
+
 import GroupsPage from "../pages/GroupsPage";
 export const Router = () => {
   return (
