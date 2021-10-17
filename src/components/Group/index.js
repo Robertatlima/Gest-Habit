@@ -20,8 +20,12 @@ const Group = ({ group }) => {
       });
   };
 
+  const handleClick = (group) => {
+    history.push(`/groups/${group.id}`);
+  };
+
   return (
-    <>
+    <div onClick={() => handleClick(group)}>
       <h1>
         Nome: {group.name} id:{group.id}
       </h1>
@@ -29,7 +33,7 @@ const Group = ({ group }) => {
       <p>Dificuldade: {group.description}</p>
 
       <button onClick={handleDelete}>Deletar</button>
-    </>
+    </div>
   );
 };
 

@@ -3,8 +3,8 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
-import { useUser } from "../../providers/User";
 
+import { useUser } from "../../providers/User";
 
 const Dashboard = () => {
   const history = useHistory();
@@ -38,6 +38,7 @@ const Dashboard = () => {
             <Button variant="contained">Habits</Button>
           </Link>
   <Link to="/groups">
+
             <button>Groups</button>
           </Link>
           <Link to="/allGroups">
