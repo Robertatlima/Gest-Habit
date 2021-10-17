@@ -3,12 +3,12 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
- feature/groups
+
 import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
 
 import Habits from "../pages/Habits";
- developer
+
 
 export const Router = () => {
   return (
@@ -26,17 +26,18 @@ export const Router = () => {
         <Route path="/dashboard">
           <Dashboard />
         </Route>
- feature/groups
+
         <Route exact path="/groups">
           <Groups />
         </Route>
         <Route exact path="/allGroups">
           <AllGroups />
+        </Route>
 
         <Route path="/habits">
           <Habits />
- developer
         </Route>
+   
       </Switch>
     </>
   );
