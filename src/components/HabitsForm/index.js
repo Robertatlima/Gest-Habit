@@ -40,7 +40,7 @@ const HabitsForm = ({ handleClickCloseInsertModal }) => {
       .post("https://kenzie-habits.herokuapp.com/habits/", requestData, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
+      .then(() => {
         history.push(`/habits`);
         handleClickCloseInsertModal();
       })

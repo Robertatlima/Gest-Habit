@@ -1,11 +1,11 @@
 import { Button, Dialog } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import GoalCardMini from "../GoalCardMini";
-import GoalsForm from "../GoalsForm";
+import ActivitiesForm from "../ActivitiesForm";
+import ActivityCardMini from "../ActivityCardMini";
 
-const Goals = ({ groupId }) => {
-  const [goals, setGoals] = useState();
+const Activities = ({ groupId }) => {
+  const [activities, setActivities] = useState();
   const [insertModal, setInsertModal] = useState(false);
   const [excludeModal, setExcludeModal] = useState(false);
   // const theme = useTheme();
@@ -16,12 +16,12 @@ const Goals = ({ groupId }) => {
   useEffect(() => {
     axios
       .get(
-        `https://kenzie-habits.herokuapp.com/goals/?group=${groupId}&page=1`,
+        `https://kenzie-habits.herokuapp.com/activities/?group=${groupId}&page=1`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => setGoals(response.data.results))
+      .then((response) => setActivities(response.data.results))
       .catch((err) => {
         console.log(err);
       });
@@ -33,16 +33,16 @@ const Goals = ({ groupId }) => {
   return (
     <div>
       <Button variant="contained" onClick={handleClickInsertModal}>
-        Nova meta
+        Nova atividade
       </Button>
       <ul>
-        {goals?.map((goal) => {
+        {activities?.map((activity) => {
           return (
-            <li key={goal.id}>
-              <GoalCardMini
-                setGoals={setGoals}
+            <li key={activity.id}>
+              <ActivityCardMini
+                setActivities={setActivities}
                 setModal={setExcludeModal}
-                goal={goal}
+                activity={activity}
               />
             </li>
           );
@@ -54,7 +54,7 @@ const Goals = ({ groupId }) => {
         onClose={handleClickCloseInsertModal}
         aria-labelledby="responsive-dialog-title"
       >
-        <GoalsForm
+        <ActivitiesForm
           groupId={groupId}
           handleClickCloseInsertModal={handleClickCloseInsertModal}
         />
@@ -62,4 +62,4 @@ const Goals = ({ groupId }) => {
     </div>
   );
 };
-export default Goals;
+export default Activities;

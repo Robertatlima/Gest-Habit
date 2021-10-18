@@ -8,6 +8,7 @@ import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
 
 import Habits from "../pages/Habits";
+import GroupDetails from "../pages/GroupDetails";
 
 export const Router = () => {
   return (
@@ -34,6 +35,9 @@ export const Router = () => {
         </Route>
         <Route path="/habits">
           <Habits />
+        </Route>
+        <Route path="/groupDetails">
+          <GroupDetails />
         </Route>
       </Switch>
     </>
