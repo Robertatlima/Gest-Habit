@@ -1,39 +1,39 @@
-import "./style.css";
-
 import { Dialog } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import HabitCard from "../HabitCard";
 import axios from "axios";
-import { useHabits } from "../../providers/Habits";
+import ActivityCard from "../ActivityCard";
 
-const HabitCardMini = ({ habit }) => {
+const ActivityCardMini = ({ activity, setModal }) => {
   const [cardModal, setCardModal] = useState(false);
-  const { setHabits } = useHabits();
 
   // const theme = useTheme();
   // const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleClickCardModal = () => setCardModal(true);
+  const handleClickCloseCardModal = () => setCardModal(false);
 
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     axios
-      .get("https://kenzie-habits.herokuapp.com/habits/personal/", {
+      .get("https://kenzie-habits.herokuapp.com/activities/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setHabits(response.data))
+      .then(() => setModal(cardModal))
+
       .catch((err) => {
         console.log(err);
       });
   }, [cardModal]);
 
-  const handleClickCardModal = () => setCardModal(true);
-  const handleClickCloseCardModal = () => setCardModal(false);
-
   return (
     <>
       <div className="minicard" onClick={handleClickCardModal}>
-        <p>Título: {habit.title}</p>
-        <p>Categoria: {habit.category}</p>
+        <p>Título: {activity.title}</p>
+        <p>
+          Data limite:{" "}
+          {activity.realization_time.split("").slice(0, 10).join("")}
+        </p>
       </div>
 
       <Dialog
@@ -42,8 +42,8 @@ const HabitCardMini = ({ habit }) => {
         onClose={handleClickCloseCardModal}
         aria-labelledby="responsive-dialog-title"
       >
-        <HabitCard
-          habit={habit}
+        <ActivityCard
+          activity={activity}
           handleClickCloseCardModal={handleClickCloseCardModal}
         />
       </Dialog>
@@ -51,4 +51,4 @@ const HabitCardMini = ({ habit }) => {
   );
 };
 
-export default HabitCardMini;
+export default ActivityCardMini;

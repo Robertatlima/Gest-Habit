@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const HabitCard = ({ habit, handleClickCloseCardModal }) => {
+const GoalCard = ({ goal, handleClickCloseCardModal }) => {
   const token = localStorage.getItem("token");
 
   const handleDelete = () => {
     axios
-      .delete(`https://kenzie-habits.herokuapp.com/habits/${habit.id}/`, {
+      .delete(`https://kenzie-habits.herokuapp.com/goals/${goal.id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => handleClickCloseCardModal())
@@ -21,21 +21,18 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       <h1>Detalhes do Hábito</h1>
       <button onClick={handleClickCloseCardModal}>X - Fechar</button>
       <h1>Título:</h1>
-      <p>{habit.title}</p>
+      <p>{goal.title}</p>
       <h1>Dificuldade:</h1>
-      <p>{habit.difficulty}</p>
-      <h1>Categoria:</h1>
-      <p>{habit.category}</p>
-      <h1>Frequência:</h1>
-      <p>{habit.frequency}</p>
+      <p>{goal.difficulty}</p>
+
       <h1>Completo:</h1>
-      <p>{habit.achieved ? "Completo" : "Incompleto"}</p>
+      <p>{goal.achieved ? "Completo" : "Incompleto"}</p>
       <h1>Progresso:</h1>
-      <p>{habit.how_much_achieved} %</p>
+      <p>{goal.how_much_achieved} %</p>
       <button onClick={handleEditar}>Editar</button>
       <button onClick={handleDelete}>Excluir</button>
     </span>
   );
 };
 
-export default HabitCard;
+export default GoalCard;

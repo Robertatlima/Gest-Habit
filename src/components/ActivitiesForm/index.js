@@ -6,12 +6,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
+const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo Obrigatório"),
-    difficulty: yup.string().required("Campo Obrigatório"),
+    realization_time: yup.string().required("Campo Obrigatório"),
   });
 
   const {
@@ -23,15 +23,14 @@ const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
   const handleForm = (data) => {
     const requestData = {
       title: data.title,
-      difficulty: data.difficulty,
-      how_much_achieved: 0,
+      realization_time: data.realization_time.concat("T00:00:00Z"),
       group: groupId,
     };
 
     const token = localStorage.getItem("token");
 
     axios
-      .post("https://kenzie-habits.herokuapp.com/goals/", requestData, {
+      .post("https://kenzie-habits.herokuapp.com/activities/", requestData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -63,22 +62,22 @@ const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
         <div className="input">
           <TextField
             variant="outlined"
-            id="difficulty"
-            label="Dificuldade"
+            id="realization_time"
+            label="YYYY-DD-MM"
             margin="normal"
             size="small"
             color="secondary"
-            {...register("difficulty")}
-            error={!!errors.difficulty}
-            helperText={errors.difficulty?.message}
+            {...register("realization_time")}
+            error={!!errors.realization_time}
+            helperText={errors.realization_time?.message}
           />
         </div>
         <Button type="submit" variant="contained" color="secondary">
-          Criar meta
+          Criar Atividade
         </Button>
       </form>
     </>
   );
 };
 
-export default GoalsForm;
+export default ActivitiesForm;

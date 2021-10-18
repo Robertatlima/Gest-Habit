@@ -3,7 +3,6 @@ import "./style.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/Auth";
-import { useUser } from "../../providers/User";
 import { useHistory } from "react-router-dom";
 import HabitsForm from "../../components/HabitsForm";
 import HabitCardMini from "../../components/HabitCardMini";
