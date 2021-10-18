@@ -14,7 +14,6 @@ import { useHabits } from "../../providers/Habits";
 const Habits = () => {
   const history = useHistory();
 
-  const { user } = useUser();
   const { auth } = useAuth();
   const { habits, setHabits } = useHabits();
   const [insertModal, setInsertModal] = useState(false);
@@ -42,14 +41,13 @@ const Habits = () => {
     <>
       {auth ? (
         <div>
-          <h1>
-            ID: {user.id}; Nome: {user.username}; E-mail: {user.email}
-          </h1>
-          <Button variant={"contained"} onClick={handleClickInsertModal}>
-            Novo Hábito
-          </Button>
-          <Button variant={"outlined"}>Seus Hábitos</Button>
-          <Button variant={"contained"}>Encontrar</Button>
+          <div>
+            <Button variant={"contained"} onClick={handleClickInsertModal}>
+              Novo Hábito
+            </Button>
+            <Button variant={"outlined"}>Seus Hábitos</Button>
+            <Button variant={"contained"}>Encontrar</Button>
+          </div>
           <ul>
             {habits?.map((habit) => {
               return (
