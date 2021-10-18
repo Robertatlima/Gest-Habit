@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";
@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useUser } from "../../providers/User";
 
-const HabitsForm = () => {
+const HabitsForm = ({ handleClickCloseInsertModal }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -44,6 +44,7 @@ const HabitsForm = () => {
       })
       .then((response) => {
         history.push(`/habits`);
+        handleClickCloseInsertModal();
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +55,7 @@ const HabitsForm = () => {
     <div>
       <h1>Formulário de criação de hábito</h1>
       <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="title"
@@ -67,7 +68,7 @@ const HabitsForm = () => {
             helperText={errors.title?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="category"
@@ -80,7 +81,7 @@ const HabitsForm = () => {
             helperText={errors.category?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="difficulty"
@@ -93,7 +94,7 @@ const HabitsForm = () => {
             helperText={errors.difficulty?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="frequency"
@@ -106,7 +107,7 @@ const HabitsForm = () => {
             helperText={errors.frequency?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="achieved"
@@ -119,7 +120,7 @@ const HabitsForm = () => {
             helperText={errors.achieved?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="how_much_achieved"
