@@ -34,7 +34,6 @@ const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        history.push(`/groupDetails`);
         handleClickCloseInsertModal();
       })
       .catch((err) => {

@@ -68,7 +68,7 @@ const Groups = () => {
             {groups?.map((group) => {
               return (
                 <li key={group.id}>
-                  <Group group={group} />;
+                  <Group group={group} />
                 </li>
               );
             })}
