@@ -34,7 +34,6 @@ export const Router = () => {
         </Route>
         <Route path="/habits">
           <Habits />
-          developer
         </Route>
       </Switch>
     </>
