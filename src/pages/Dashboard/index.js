@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <>
       <Header logout />
-      <CardProfile profile />
+      <CardProfile />
       <div>
         <Link to="/habits">
           <Button variant="contained">Habits</Button>
