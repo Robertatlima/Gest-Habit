@@ -24,10 +24,8 @@ export const Router = () => {
           <SignUp />
         </Route>
         <Route path="/dashboard">
-          <Header destino={"/"} name={"Sair"} />
           <Dashboard />
         </Route>
-        feature/groups
         <Route exact path="/groups">
           <Header destino={"/"} name={"Sair"} />
           <Groups />

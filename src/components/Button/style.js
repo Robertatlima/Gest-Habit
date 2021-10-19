@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 200px;
+  width: 130px;
   height: 40px;
   cursor: pointer;
   font-size: 18px;
+  @media (max-width: 540px) {
+    width: 80px;
+    height: 40px;
+    font-size: 13px;
+  }
+  margin-left: 15px;
   background-color: ${(props) => (props.schema ? "#8092ED" : "#6AD980")};
   color: var(--color-gray50);
   font-weight: normal;

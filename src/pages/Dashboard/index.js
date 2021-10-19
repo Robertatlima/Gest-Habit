@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
-
+import Header from "../../components/NavBar";
 import { useUser } from "../../providers/User";
 
 const Dashboard = () => {
@@ -28,6 +28,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <Header logout />
       {auth ? (
         <div>
           <h1>ID do usuário: {user.id}</h1>
