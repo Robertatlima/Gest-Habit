@@ -51,7 +51,6 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       .then(() => {
         setEdit(false);
         handleClickCloseCardModal();
-        history.push(`/habits`);
       })
       .catch((err) => {
         console.log(err);
