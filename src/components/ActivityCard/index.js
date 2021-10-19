@@ -104,7 +104,9 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         <p>{activity.realization_time.split("").slice(0, 10).join("")}</p>
       )}
       <button onClick={handleConfirm}>Confirmar</button>
-      <button onClick={handleEdit}>Editar</button>
+      <button type="button" onClick={handleEdit}>
+        Editar
+      </button>
       <button onClick={handleDelete}>Excluir</button>
     </form>
   );
