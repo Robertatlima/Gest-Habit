@@ -1,4 +1,8 @@
+ul {
+  list-style: none;
+}
+
 li {
   width: 450px;
-  border: 1px solid black;
+  margin: 10px;
 }

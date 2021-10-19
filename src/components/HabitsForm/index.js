@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";
@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useUser } from "../../providers/User";
 
-const HabitsForm = () => {
+const HabitsForm = ({ handleClickCloseInsertModal }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -14,8 +14,6 @@ const HabitsForm = () => {
     category: yup.string().required("Campo Obrigatório"),
     difficulty: yup.string().required("Campo Obrigatório"),
     frequency: yup.string().required("Campo Obrigatório"),
-    achieved: yup.string().required("Campo Obrigatório"),
-    how_much_achieved: yup.string().required("Campo Obrigatório"),
   });
   const {
     register,
@@ -31,8 +29,8 @@ const HabitsForm = () => {
       category: data.category,
       difficulty: data.difficulty,
       frequency: data.frequency,
-      achieved: data.achieved,
-      how_much_achieved: data.how_much_achieved,
+      achieved: false,
+      how_much_achieved: 0,
       user: user.id,
     };
 
@@ -42,8 +40,9 @@ const HabitsForm = () => {
       .post("https://kenzie-habits.herokuapp.com/habits/", requestData, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
+      .then(() => {
         history.push(`/habits`);
+        handleClickCloseInsertModal();
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +53,7 @@ const HabitsForm = () => {
     <div>
       <h1>Formulário de criação de hábito</h1>
       <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="title"
@@ -67,7 +66,7 @@ const HabitsForm = () => {
             helperText={errors.title?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="category"
@@ -80,7 +79,7 @@ const HabitsForm = () => {
             helperText={errors.category?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="difficulty"
@@ -93,7 +92,7 @@ const HabitsForm = () => {
             helperText={errors.difficulty?.message}
           />
         </div>
-        <div classeName="input">
+        <div className="input">
           <TextField
             variant="outlined"
             id="frequency"
@@ -104,32 +103,6 @@ const HabitsForm = () => {
             {...register("frequency")}
             error={!!errors.frequency}
             helperText={errors.frequency?.message}
-          />
-        </div>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="achieved"
-            label="Finalizado? true/false"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("achieved")}
-            error={!!errors.achieved}
-            helperText={errors.achieved?.message}
-          />
-        </div>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="how_much_achieved"
-            label="% finalizado"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("how_much_achieved")}
-            error={!!errors.how_much_achieved}
-            helperText={errors.how_much_achieved?.message}
           />
         </div>
         <div>
