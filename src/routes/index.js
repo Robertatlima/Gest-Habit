@@ -14,7 +14,7 @@ export const Router = () => {
     <>
       <Switch>
         <Route exact path="/">
-          <Header destino={'/login'} name={'Entrar'} />
+          <Header destino={"/login"} name={"Entrar"} />
           <Home />
         </Route>
         <Route path="/login">
@@ -24,23 +24,24 @@ export const Router = () => {
           <SignUp />
         </Route>
         <Route path="/dashboard">
-          <Header destino={'/'} name={'Sair'} />
+          <Header destino={"/"} name={"Sair"} />
           <Dashboard />
         </Route>
         feature/groups
         <Route exact path="/groups">
-          <Header destino={'/'} name={'Sair'} />
+          <Header destino={"/"} name={"Sair"} />
           <Groups />
         </Route>
         <Route exact path="/allGroups">
-          <Header destino={'/'} name={'Sair'} />
+          <Header destino={"/"} name={"Sair"} />
           <AllGroups />
         </Route>
         <Route path="/habits">
-          <Header destino={'/'} name={'Sair'} />
+          <Header destino={"/"} name={"Sair"} />
           <Habits />
         </Route>
         <Route path="/groupDetails">
+          <Header destino={"/"} name={"Sair"} />
           <GroupDetails />
         </Route>
       </Switch>
