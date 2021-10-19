@@ -30,8 +30,8 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => handleClickCloseCardModal())
-      .catch((e) => {
-        console.log(e);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
