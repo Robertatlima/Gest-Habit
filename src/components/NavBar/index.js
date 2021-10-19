@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { NavBarConteiner } from "./style";
 import Logo from "../../assets/img/Logo.png";
 import Button from "../Button";
-
+import { FiLogOut } from "react-icons/fi";
 const Header = ({ destiny, name, logout = false }) => {
   return (
     <NavBarConteiner>
@@ -25,12 +25,9 @@ const Header = ({ destiny, name, logout = false }) => {
             </Link>
           </nav>
         ) : (
-          <Link className="link-navBar" to="/">
-            <Button
-              className="button"
-              schema={false}
-              children={"Sair"}
-            ></Button>
+          <Link className="link-navBar-logout" to="/">
+            <FiLogOut />
+            <p>Sair</p>
           </Link>
         )}
       </div>
