@@ -1,7 +1,13 @@
-import * as C from "./styles";
+import { Container } from "./styles";
+
 
 const Home = () => {
-  return <div>HOME</div>;
+  
+  return(
+  <Container>
+   <h1>HOME</h1>
+  </Container>
+  )
 };
 
 export default Home;
