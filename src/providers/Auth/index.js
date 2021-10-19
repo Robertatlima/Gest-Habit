@@ -9,8 +9,6 @@ const initialState = initialToken ? true : false;
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(initialState);
 
-  console.log(auth);
-
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       {children}

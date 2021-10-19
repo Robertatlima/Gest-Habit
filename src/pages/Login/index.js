@@ -33,7 +33,19 @@ const Login = () => {
         localStorage.setItem("token", response.data.access);
 
         const { user_id } = jwt_decode(localStorage.getItem("token"));
-        setUser({ id: user_id });
+
+        axios
+          .get(`https://kenzie-habits.herokuapp.com/users/${user_id}/`)
+          .then((response) => {
+            setUser({
+              id: response.data.id,
+              username: response.data.username,
+              email: response.data.email,
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
 
         setAuth(true);
 
