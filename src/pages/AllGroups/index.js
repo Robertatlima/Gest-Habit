@@ -31,7 +31,6 @@ const AllGroups = ({ group }) => {
 
   return (
     <C.Container>
-      <Header logout />
       <div>
         <h1>Encontrar</h1>
         <AiOutlineCloseCircle />

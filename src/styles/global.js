@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
 
 }
 body{
-    background-color: var(--color-primary);
+   background-color: #F5F5F5;
+
    
 }
 h1{

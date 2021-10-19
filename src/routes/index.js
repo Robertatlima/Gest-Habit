@@ -8,6 +8,7 @@ import AllGroups from "../pages/AllGroups";
 import Habits from "../pages/Habits";
 import Header from "../components/NavBar";
 import GroupDetails from "../pages/GroupDetails";
+import CardProfile from "../components/cardProfile";
 
 export const Router = () => {
   return (
@@ -27,19 +28,23 @@ export const Router = () => {
           <Dashboard />
         </Route>
         <Route exact path="/groups">
-          <Header destino={"/"} name={"Sair"} />
+          <Header logout />
+          <CardProfile />
           <Groups />
         </Route>
         <Route exact path="/allGroups">
-          <Header destino={"/"} name={"Sair"} />
+          <Header logout />
+          <CardProfile />
           <AllGroups />
         </Route>
         <Route path="/habits">
-          <Header destino={"/"} name={"Sair"} />
+          <Header logout />
+          <CardProfile />
           <Habits />
         </Route>
         <Route path="/groupDetails">
-          <Header destino={"/"} name={"Sair"} />
+          <Header logout />
+          <CardProfile />
           <GroupDetails />
         </Route>
       </Switch>
