@@ -1,8 +1,8 @@
 import { Container } from "./style";
 
-const Button = ({schema = true, children, ...rest}) =>{
+const Button = ({schema = true, children, type,  ...rest}) =>{
     return(
-        <Container schema={schema} type='button' {...rest}>
+        <Container schema={schema} type={type} {...rest}>
             {children}
         </Container>
     )

@@ -17,7 +17,7 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
   const handleEditar = () => {};
 
   return (
-    <span className='cardContainer'>
+    <span>
       <h1>Detalhes do Hábito</h1>
       <button onClick={handleClickCloseCardModal}>X - Fechar</button>
       <h1>Título:</h1>

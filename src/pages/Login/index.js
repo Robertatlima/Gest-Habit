@@ -3,12 +3,13 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TextField, Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
 
+import Button from "../../components/Button";
 const Login = () => {
   const { setUser } = useUser();
   const { setAuth } = useAuth();
@@ -56,6 +57,7 @@ const Login = () => {
 
   return (
     <C.Container>
+      <h2>Login</h2>
       <form className="formulario" onSubmit={handleSubmit(handleForm)}>
         <div>
           <TextField
@@ -85,10 +87,21 @@ const Login = () => {
         </div>
 
         <div>
-          <Button type="submit" variant="contained" color="secondary">
+          <button 
+            type="submit" 
+           >
+          Logar
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => history.push("/signup")}
+            variant="contained"
+            color="secondary"
+          >
             {" "}
-            Entrar
-          </Button>
+            Cadastrar
+          </button>
         </div>
         <p>
           Novo usuário? <Link to="/signup">Cadastre-se</Link>

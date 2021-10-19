@@ -1,66 +1,44 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const NavBarConteiner = styled.div`
-width: 100%;
-background-color: var(--color-gray50);
-display: flex;
-height: 50px;
-justify-content: space-between;
-align-items: center;
-ul{
+  background-color: var(--color-gray50);
+  border-bottom: 1px solid #fff;
+  position: fixed;
+  width: 100%;
+  .header-conteudo {
+    max-width: 1200px;
+    height: 60px;
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content:space-between;
-  
-  li{
-      margin: 50px;
-      color: var(--color-blackSmoky);
-      flex-basis: 1;
-      border: none;
-      list-style-type:none;
-      display: flex;
-     img{
-          margin-left: 30px;
-          width: 120px;
-      }
-      div{
-        justify-content: space-evenly;
-        color: var(--color-blackSmoky);
-        text-decoration: none;
-        border: none;
-        font-size: 14px;
-        font-family: var(--font-primary);
-        align-content: flex-end;
-        font-weight: bold;
-      }
-
+    justify-content: space-between;
+    margin: 0 auto;
   }
-  li:nth-child(2){
-        color: var(--color-gray50);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 300px;
-        div{
-          margin: 20px;
-        }
+  .logo {
+    display: flex;
+    align-items: center;
+    .img-logo {
+      width: 120px;
     }
-    @media (max-width: 700px){
-      li{
-        margin: 10px;
-      }
-      li:nth-child(2){
-        width: 150px;
-        flex: 1;
-      }
-      li{
-      img{
-          margin-left: 5px;
-          width: 80px;
-      }
-    }
-}
-}
+  }
 
-`
+  .navBar {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    text-transform: uppercase;
+    line-height: 18px;
+    text-decoration: none;
+  }
+  .link-navBar {
+    text-decoration: none;
+  }
+  .link-navBar-logout {
+    text-decoration: none;
+    color: #7f7f7f;
+    display: flex;
+    font-size: 18px;
+    p {
+      margin-left: 5px;
+    }
+  }
+`;
