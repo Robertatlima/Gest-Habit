@@ -29,7 +29,7 @@ const Group = ({ group }) => {
   };
 
   return (
-    <C.Container onClick={() => handleClick(group)}>
+    <C.Container className='cardContainer' onClick={() => handleClick(group)}>
       <h1>{group.name}</h1>
       <p>Categoria: {group.category}</p>
       <p>Dificuldade: {group.description}</p>

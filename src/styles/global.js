@@ -3,7 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 :root{
     --color-primary: #8092ED;
-    --color-group: #54BF9F;
+    --color-group: #8092ED;
+    --color-goals: #54BF9F;
     --color-ativities: #BF5454;
     --color-blacksmoky: #3D3F4B;
     --color-black: #333333;
@@ -14,9 +15,7 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
     background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center
+  
 }
 h1{
     font-family: 'Rubik', sans-serif;
@@ -30,7 +29,13 @@ h3{
     font-family: 'Roboto , sans-serif';
     font-size: 18px;
 }
-
+.cardContainer{
+    width: 380px;
+    height: 152px;
+    background-color: var(---color-primary);
+    border: 1px solid white;
+    border-radius: 8px;
+}
 
 `;
 export default GlobalStyle;

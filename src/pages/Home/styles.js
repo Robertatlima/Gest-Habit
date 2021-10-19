@@ -8,6 +8,11 @@ height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
 p{
     font-size: 30px;
     font-weight: lighter;
