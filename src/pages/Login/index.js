@@ -87,20 +87,20 @@ const Login = () => {
         </div>
 
         <div>
-          <Button type="submit" variant="contained" color="secondary">
+          <button type="submit" variant="contained" color="secondary">
             {" "}
             Logar
-          </Button>
+          </button>
         </div>
         <div>
-          <Button
+          <button
             onClick={() => history.push("/signup")}
             variant="contained"
             color="secondary"
           >
             {" "}
             Cadastrar
-          </Button>
+          </button>
         </div>
         <p>
           Novo usuário? <Link to="/signup">Cadastre-se</Link>

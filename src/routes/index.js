@@ -35,7 +35,7 @@ export const Router = () => {
         <Route exact path="/allGroups">
           <Header logout />
           <CardProfile />
-          <AllGroups />
+          <AllGroups/>
         </Route>
         <Route path="/habits">
           <Header logout />
