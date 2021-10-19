@@ -12,7 +12,7 @@ ul{
     width: 100%;
     align-items: center;
     justify-content:space-between;
-   
+  
   li{
       margin: 50px;
       color: var(--color-blackSmoky);
@@ -34,6 +34,7 @@ ul{
         align-content: flex-end;
         font-weight: bold;
       }
+
   }
   li:nth-child(2){
         color: var(--color-gray50);
@@ -45,6 +46,21 @@ ul{
           margin: 20px;
         }
     }
+    @media (max-width: 700px){
+      li{
+        margin: 10px;
+      }
+      li:nth-child(2){
+        width: 150px;
+        flex: 1;
+      }
+      li{
+      img{
+          margin-left: 5px;
+          width: 80px;
+      }
+    }
+}
 }
 
 `

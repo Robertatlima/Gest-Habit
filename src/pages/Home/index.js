@@ -6,6 +6,7 @@ import imgRafael from '../../assets/img/Rafael.jpeg';
 import imgGustavo from '../../assets/img/Gustavo.jpeg'
 import imgFlavio from '../../assets/img/Flavio.jpeg'
 import Button from '../../components/Button'
+import imgDuvida from '../../assets/img/duvida.png'
 
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
         </div>
 
       </Container>
+
       <ContainerMiddle>
 
         <div>
@@ -39,11 +41,11 @@ const Home = () => {
             Procure hábitos saudáveis, aprenda novos
             hábitos e pratique esportes. Com amigos é ainda melhor. Experimete!
           </p>
-          <Button schema={false} children={'Começar'} />
+         
         </div>
         <div>
           <figcaption>
-            <img src={`${imgColab}`} alt="" />
+            <img src={`${imgDuvida}`} alt="" />
           </figcaption>
         </div>
 
@@ -65,11 +67,13 @@ const Home = () => {
               </p>
             </p>
           </div>
+
           <div>
             <figcaption>
               <img src={`${imgRafael}`} alt="" />
             </figcaption>
           </div>
+          
         </div>
 
         <div>
