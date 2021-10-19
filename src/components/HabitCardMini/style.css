@@ -1,0 +1,9 @@
+.minicard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: #d9b24a;
+  padding: 20px;
+  padding-left: 50px;
+}

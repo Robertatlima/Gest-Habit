@@ -1,5 +1,6 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const UserContext = createContext();
 
@@ -11,6 +12,21 @@ const initialState = { id: user_id };
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(initialState);
+
+  useEffect(() => {
+    axios
+      .get(`https://kenzie-habits.herokuapp.com/users/${user_id}/`)
+      .then((response) => {
+        setUser({
+          id: response.data.id,
+          username: response.data.username,
+          email: response.data.email,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
