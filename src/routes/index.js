@@ -3,12 +3,11 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
-
 import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
-
 import Habits from "../pages/Habits";
 import Header from "../components/NavBar";
+import GroupDetails from "../pages/GroupDetails";
 
 export const Router = () => {
   return (
@@ -40,7 +39,9 @@ export const Router = () => {
         <Route path="/habits">
           <Header destino={'/'} name={'Sair'} />
           <Habits />
-          developer
+        </Route>
+        <Route path="/groupDetails">
+          <GroupDetails />
         </Route>
       </Switch>
     </>

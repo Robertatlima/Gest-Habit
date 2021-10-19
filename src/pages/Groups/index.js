@@ -1,17 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/Auth";
-import { useUser } from "../../providers/User";
-import { useHistory } from "react-router-dom";
-import Group from "../../components/Group";
+// import { useUser } from "../../providers/User";
+import { useHistory, Link } from "react-router-dom";
+import Group from "../../components/GroupCard";
 import GroupsForm from "../../components/GroupsForm";
+import { Dialog } from "@mui/material";
+import { Button } from "@material-ui/core";
+import { useGroups } from "../../providers/Groups";
+import * as C from "./styles.js";
 
 const Groups = () => {
   const history = useHistory();
 
-  const { user } = useUser();
+  //const { user } = useUser();
   const { auth } = useAuth();
-  const [groups, setGroups] = useState();
+  const { groups, setGroups } = useGroups();
+  const [insertModal, setInsertModal] = useState(false);
 
   const token = localStorage.getItem("token");
 
@@ -24,30 +29,55 @@ const Groups = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [insertModal]);
+
+  const handleClickInsertModal = () => setInsertModal(!insertModal);
+  const handleClickCloseInsertModal = () => setInsertModal(false);
 
   return (
-    <>
+    <C.Container>
       {auth ? (
         <div>
-          <h1>
-            ID: {user.id}; Nome: {user.username}; E-mail: {user.email}
-          </h1>
+          <Button
+            className="button"
+            variant={"contained"}
+            onClick={handleClickInsertModal}
+          >
+            Novo grupo
+          </Button>
+          <Link className="link" to="/allGroups">
+            <Button className="button" variant={"contained"}>
+              Encontrar
+            </Button>
+          </Link>
+          <div>
+            <Dialog
+              open={insertModal}
+              onClose={handleClickCloseInsertModal}
+              aria-labelledby="responsive-dialog-title"
+            >
+              {insertModal && (
+                <GroupsForm
+                  handleClickInsertModal={handleClickCloseInsertModal}
+                />
+              )}
+            </Dialog>
+          </div>
+
           <ul>
             {groups?.map((group) => {
               return (
                 <li key={group.id}>
-                  <Group group={group} />;
+                  <Group group={group} />
                 </li>
               );
             })}
           </ul>
-          <GroupsForm />
         </div>
       ) : (
         history.push("/login")
-      )}
-    </>
+      )}{" "}
+    </C.Container>
   );
 };
 

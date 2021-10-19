@@ -38,10 +38,7 @@ const Dashboard = () => {
           </Link>
 
           <Link to="/groups">
-            <button>Groups</button>
-          </Link>
-          <Link to="/allGroups">
-            <button>Descobrir</button>
+            <Button variant="contained">Groups</Button>
           </Link>
         </div>
       ) : (
