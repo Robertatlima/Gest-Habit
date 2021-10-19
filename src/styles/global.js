@@ -14,9 +14,7 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
     background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center
+   
 }
 h1{
     font-family: 'Rubik', sans-serif;
