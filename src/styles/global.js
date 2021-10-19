@@ -6,13 +6,21 @@ const GlobalStyle = createGlobalStyle`
     --color-group: #54BF9F;
     --color-ativities: #BF5454;
     --color-blacksmoky: #3D3F4B;
-    --color-black: #333333
+    --color-black: #333333;
+    --color-gray50: #F5F5F5;
+    --color-gray100: #7F7F7F;
     --font-primary: 'Roboto , sans-serif';
 
 }
+body{
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
 h1{
-    font-family: 'Roboto , sans-serif';
-    font-size: 64px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 50px;
 }
 h2{
     font-family: 'Roboto , sans-serif';

@@ -8,12 +8,14 @@ import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
 
 import Habits from "../pages/Habits";
+import Header from "../components/NavBar";
 
 export const Router = () => {
   return (
     <>
       <Switch>
         <Route exact path="/">
+          <Header destino={'/login'} name={'Entrar'} />
           <Home />
         </Route>
         <Route path="/login">
@@ -23,16 +25,20 @@ export const Router = () => {
           <SignUp />
         </Route>
         <Route path="/dashboard">
+          <Header destino={'/'} name={'Sair'} />
           <Dashboard />
         </Route>
         feature/groups
         <Route exact path="/groups">
+          <Header destino={'/'} name={'Sair'} />
           <Groups />
         </Route>
         <Route exact path="/allGroups">
+          <Header destino={'/'} name={'Sair'} />
           <AllGroups />
         </Route>
         <Route path="/habits">
+          <Header destino={'/'} name={'Sair'} />
           <Habits />
           developer
         </Route>

@@ -8,14 +8,14 @@ import GlobalStyle from "./styles/global";
 import GlobalStyleReset from "./styles/reset/reset";
 ReactDOM.render(
   <React.StrictMode>
-   
-      <Providers>
-        <BrowserRouter>
-        <GlobalStyleReset/>
-        <GlobalStyle/>
-          <App />
-        </BrowserRouter>
-      </Providers>
+
+    <Providers>
+      <BrowserRouter>
+        <GlobalStyleReset />
+        <GlobalStyle />
+        <App />
+      </BrowserRouter>
+    </Providers>
   </React.StrictMode>,
   document.getElementById("root")
 );
