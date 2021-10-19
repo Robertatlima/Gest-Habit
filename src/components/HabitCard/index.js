@@ -12,8 +12,12 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
   const [edit, setEdit] = useState(false);
 
   const schema = yup.object().shape({
-    achieved: yup.string().required("Campo Obrigatório"),
-    how_much_achieved: yup.string().required("Campo Obrigatório"),
+    title: yup.string(),
+    difficulty: yup.string(),
+    category: yup.string(),
+    frequency: yup.string(),
+    achieved: yup.string(),
+    how_much_achieved: yup.string(),
   });
 
   const {
@@ -47,7 +51,6 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       .then(() => {
         setEdit(false);
         handleClickCloseCardModal();
-        history.push(`/habits`);
       })
       .catch((err) => {
         console.log(err);
@@ -59,22 +62,83 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       <h1>Detalhes do Hábito</h1>
       <button onClick={handleClickCloseCardModal}>X - Fechar</button>
       <h1>Título:</h1>
-      <p>{habit.title}</p>
+      {edit ? (
+        <TextField
+          variant="outlined"
+          id="title"
+          label="Título"
+          margin="normal"
+          size="small"
+          color="secondary"
+          defaultValue={habit.title}
+          {...register("title")}
+          error={!!errors.title}
+          helperText={errors.title?.message}
+        />
+      ) : (
+        <p>{habit.title}</p>
+      )}
       <h1>Dificuldade:</h1>
-      <p>{habit.difficulty}</p>
+      {edit ? (
+        <TextField
+          variant="outlined"
+          id="difficulty"
+          label="Dificuldade"
+          margin="normal"
+          size="small"
+          color="secondary"
+          defaultValue={habit.difficulty}
+          {...register("difficulty")}
+          error={!!errors.difficulty}
+          helperText={errors.difficulty?.message}
+        />
+      ) : (
+        <p>{habit.difficulty}</p>
+      )}
       <h1>Categoria:</h1>
-      <p>{habit.category}</p>
+      {edit ? (
+        <TextField
+          variant="outlined"
+          id="category"
+          label="Categoria"
+          margin="normal"
+          size="small"
+          color="secondary"
+          defaultValue={habit.category}
+          {...register("category")}
+          error={!!errors.category}
+          helperText={errors.category?.message}
+        />
+      ) : (
+        <p>{habit.category}</p>
+      )}
       <h1>Frequência:</h1>
-      <p>{habit.frequency}</p>
+      {edit ? (
+        <TextField
+          variant="outlined"
+          id="frequency"
+          label="Frequência"
+          margin="normal"
+          size="small"
+          color="secondary"
+          defaultValue={habit.frequency}
+          {...register("frequency")}
+          error={!!errors.frequency}
+          helperText={errors.frequency?.message}
+        />
+      ) : (
+        <p>{habit.frequency}</p>
+      )}
       <h1>Completo:</h1>
       {edit ? (
         <TextField
           variant="outlined"
           id="achieved"
-          label=" box true/false"
+          label="Completo"
           margin="normal"
           size="small"
           color="secondary"
+          defaultValue={habit.achieved ? "Completo" : "Incompleto"}
           {...register("achieved")}
           error={!!errors.achieved}
           helperText={errors.achieved?.message}
@@ -91,6 +155,7 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
           margin="normal"
           size="small"
           color="secondary"
+          defaultValue={habit.how_much_achieved}
           {...register("how_much_achieved")}
           error={!!errors.how_much_achieved}
           helperText={errors.how_much_achieved?.message}
