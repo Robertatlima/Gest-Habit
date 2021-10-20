@@ -45,11 +45,11 @@ export const NavBarConteiner = styled.div`
   }
   .link-navBar-logout {
     text-decoration: none;
-    color: #7f7f7f;
     display: flex;
     font-size: 18px;
     p {
       margin-left: 5px;
+      color: var(--color-gray100);
     }
   }
 `;

@@ -54,7 +54,7 @@ export const Container = styled.div`
     border-radius: 8px;
     margin: 0;
     height: 60px;
-  }
+
   .btnBox {
     width: 95%;
 
