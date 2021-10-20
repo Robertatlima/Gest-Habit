@@ -22,7 +22,7 @@ body{
    
 }
 h1, h2, h3, p{
-    font-family: "Rubik", sans-serif;;
+    font-family: "Rubik", sans-serif;
     font-style: normal;
     color: var(--color-gray50);
 }
