@@ -28,7 +28,18 @@ export const NavBarConteiner = styled.div`
     text-transform: uppercase;
     line-height: 18px;
     text-decoration: none;
+
+    h3 {
+      color: var(--color-gray100);
+      margin: 5px;
+      text-decoration: none;
+      font-family: roboto, sans-serif;
+    }
+    .link-navBar--login {
+      color: var(--color-black);
+    }
   }
+
   .link-navBar {
     text-decoration: none;
   }
