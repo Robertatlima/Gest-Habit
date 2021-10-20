@@ -43,6 +43,7 @@ export const Container = styled.div`
 
   .loginInput-field {
     background: var(--color-gray50);
+    width: 400px;
   }
   .btnBox {
     width: 95%;
