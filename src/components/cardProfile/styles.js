@@ -1,32 +1,35 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 390px;
   background-color: #ffffff;
   height: 518px;
   border-radius: 20px;
+
+  margin-top: 15px;
   .profile {
-    height: 139px;
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
-    align-items: center;
     padding: 0 0 0 50px;
-    margin-top: 45px;
+    align-items: center;
+    height: 150px;
+    justify-content: center;
+    margin: 0 auto;
   }
   .profile-left {
     img {
       width: 110px;
       border-radius: 50%;
-      margin-right: 8px;
     }
   }
   .profile-right {
     h1 {
       font-size: 28px;
+      color: #333333;
+      margin-right: 50px;
     }
     span {
-      color: #bfbfbf;
+      color: #cfcfcf;
     }
   }
 
@@ -40,12 +43,14 @@ export const Container = styled.div`
   }
   .card-habits {
     background-color: #d9b24a;
-    width: 330px;
+    width: 300px;
     display: flex;
     align-items: center;
     height: 162px;
     margin-top: 10px;
     color: #ffffff;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 10px;
     h1 {
       margin-left: 16px;
@@ -57,7 +62,9 @@ export const Container = styled.div`
     background-color: #8092ed;
     display: flex;
     align-items: center;
-    width: 330px;
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 162px;
     border-radius: 10px;
     h1 {

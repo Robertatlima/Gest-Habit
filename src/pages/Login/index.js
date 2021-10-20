@@ -52,7 +52,7 @@ const Login = () => {
 
         setAuth(true);
 
-        history.push("/dashboard");
+        history.push("/habits");
       })
       .catch((err) => console.log(err));
   };

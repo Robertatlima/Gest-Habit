@@ -1,5 +1,5 @@
-import "./style.css";
-
+import * as C from "./styles.js";
+import CardProfile from "../../components/cardProfile";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/Auth";
@@ -7,9 +7,9 @@ import { useHistory } from "react-router-dom";
 import HabitsForm from "../../components/HabitsForm";
 import HabitCardMini from "../../components/HabitCardMini";
 import { Dialog } from "@mui/material";
-import { Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { useHabits } from "../../providers/Habits";
-
+import Button from "../../components/Button";
 const Habits = () => {
   const history = useHistory();
 
@@ -38,16 +38,16 @@ const Habits = () => {
 
   return (
     <>
+      <CardProfile />
       {auth ? (
-        <div>
-          <div>
+        <C.Container>
+          <C.ButtonsContainer>
             <Button variant={"contained"} onClick={handleClickInsertModal}>
               Novo Hábito
             </Button>
-            <Button variant={"outlined"}>Seus Hábitos</Button>
-            <Button variant={"contained"}>Encontrar</Button>
-          </div>
-          <ul>
+            <TextField id="search" variant="outlined" />
+          </C.ButtonsContainer>
+          <C.ListContainer>
             {habits?.map((habit) => {
               return (
                 <li key={habit.id}>
@@ -55,7 +55,7 @@ const Habits = () => {
                 </li>
               );
             })}
-          </ul>
+          </C.ListContainer>
           <Dialog
             // fullScreen={fullScreen}
             open={insertModal}
@@ -66,7 +66,7 @@ const Habits = () => {
               handleClickCloseInsertModal={handleClickCloseInsertModal}
             />
           </Dialog>
-        </div>
+        </C.Container>
       ) : (
         history.push("/login")
       )}

@@ -46,6 +46,8 @@ export const NavBarConteiner = styled.div`
   .link-navBar-logout {
     text-decoration: none;
     display: flex;
+    color: var(--color-gray100);
+    font-weight: bold;
     font-size: 18px;
     p {
       margin-left: 5px;

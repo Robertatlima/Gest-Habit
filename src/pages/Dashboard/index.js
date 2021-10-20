@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import CardProfile from "../../components/cardProfile";
 import Header from "../../components/NavBar";
 import { useUser } from "../../providers/User";
-
+import Habits from "../Habits";
 const Dashboard = () => {
   const { user, setUser } = useUser();
 
@@ -26,17 +26,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header logout />
-      <CardProfile />
-      <div>
-        <Link to="/habits">
-          <Button variant="contained">Habits</Button>
-        </Link>
-
-        <Link to="/groups">
-          <Button variant="contained">Groups</Button>
-        </Link>
-      </div>
+      <Habits />
     </>
   );
 };
