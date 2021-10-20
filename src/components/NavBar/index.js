@@ -11,19 +11,7 @@ const Header = ({ destiny, name, logout = false }) => {
           <img className="img-logo" src={`${Logo}`} alt="Imagem Logo" />
         </div>
 
-        {destiny === "login" ? (
-          <nav className="navBar">
-            <Link className="link-navBar" to="/">
-              <h3>Início</h3>
-            </Link>
-            <Link className="link-navBar" to="/login">
-              <h3 className="link-navBar--login">Login</h3>
-            </Link>
-            <Link className="link-navBar" to="/signup">
-              <h3>Casdastro</h3>
-            </Link>
-          </nav>
-        ) : !logout ? (
+        {!logout ? (
           <nav className="navBar">
             <Link className="link-navBar" to="signup">
               {" "}
