@@ -1,8 +1,61 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
+background-color: var(--color-primary);
+font-family: 'Rubik', sans-serif;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+p{
+    font-size: 30px;
+    font-weight: lighter;
+    margin-left: 60px;
+    color: white;
+    width: 50%;
+    h1{
+        font-weight:lighter;
+    }
+}
+div{
+    margin-left: 60px;
+}
+@media (max-width: 700px){
+    img{
+        display: none;
+        text-align: center;
+    }
+}
+`
+export const ContainerMiddle = styled.div`
+font-family: 'Rubik', sans-serif;
+background-color: var(--color-group);
+height: 60vh;
+display: flex;
+align-items: center;
+justify-content: center;
+p{
+    width: 70%;
+    text-align: right;
+    color: white;
+}
+@media (max-width: 700px){
+    img{
+        display: none;
+        text-align: center;
+    }
+}
+`
+
   margin: 0 auto;
 `;
+
 
 export const ContainerTop = styled.div`
   background-color: var(--color-primary);

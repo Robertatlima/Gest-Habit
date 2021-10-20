@@ -116,6 +116,28 @@ const Login = () => {
         </C.Container>
       </C.LoginContainer>
     </>
+        <div>
+          <button 
+            type="submit" 
+           >
+          Logar
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => history.push("/signup")}
+            variant="contained"
+            color="secondary"
+          >
+            {" "}
+            Cadastrar
+          </button>
+        </div>
+        <p>
+          Novo usuário? <Link to="/signup">Cadastre-se</Link>
+        </p>
+      </form>
+    </C.Container>
   );
 };
 

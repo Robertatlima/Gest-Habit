@@ -4,6 +4,9 @@ const GlobalStyle = createGlobalStyle`
 :root{
     --color-primary: #8092ED;
     --color-group: #5472BF;
+
+    --color-secondary: #6AD980;
+
     --color-secondary: #6AD980
     --color-habits: #D9B24A;
     --color-goals: #54BF9F;
@@ -32,6 +35,36 @@ h2{
 h3{
     font-size: 18px;
 }
+
+.largeCardContainer{
+    width: 420px;
+    height: 160px;
+    background-color: var(--color-group);
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 7px 2px 15px -6px #000000;
+    h1{
+        font-size: 30px;
+    }
+}
+.mediunCardContainer{
+    width: 180px;
+    height: 80px;
+    background-color: var(--color-group);
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 7px 2px 15px -6px #000000;
+}
+.smallCardContainer{
+    width: 90px;
+    height: 40px;
+    background-color: var(--color-group);
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 7px 2px 15px -6px #000000;
+}
+
+
 p{
     font-size: 16px;
     font-weight: lighter;
