@@ -4,7 +4,10 @@ const GlobalStyle = createGlobalStyle`
 :root{
     --color-primary: #8092ED;
     --color-group: #5472BF;
+
     --color-secondary: #6AD980;
+
+    --color-secondary: #6AD980
     --color-habits: #D9B24A;
     --color-goals: #54BF9F;
     --color-ativities: #BF5454;
@@ -13,25 +16,26 @@ const GlobalStyle = createGlobalStyle`
     --color-gray50: #F5F5F5;
     --color-gray100: #7F7F7F;
     --font-primary: 'Roboto , sans-serif';
-
 }
 body{
-   background-color: #F5F5F5;
-
+   background-color: var(--color-gray50); 
    
 }
+h1, h2, h3, p{
+    font-family: "Rubik", sans-serif;;
+    font-style: normal;
+    color: var(--color-gray50);
+}
 h1{
-    font-family: 'Rubik', sans-serif;
     font-size: 50px;
 }
 h2{
-    font-family: 'Roboto , sans-serif';
     font-size: 32px;
 }
 h3{
-    font-family: 'Roboto , sans-serif';
     font-size: 18px;
 }
+
 .largeCardContainer{
     width: 100%;
     background-color: var(--color-group);
@@ -59,5 +63,10 @@ h3{
     box-shadow: 7px 2px 15px -6px #000000;
 }
 
+
+p{
+    font-size: 16px;
+    font-weight: lighter;
+}
 `;
 export default GlobalStyle;
