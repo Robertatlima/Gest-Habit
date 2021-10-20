@@ -61,6 +61,9 @@ const Login = () => {
     <>
       <Header destiny="login" />
       <C.LoginContainer>
+        <div>
+          <h1>Gest Habit</h1>
+        </div>
         <C.Container>
           <form className="formulario" onSubmit={handleSubmit(handleForm)}>
             <div>
@@ -70,11 +73,13 @@ const Login = () => {
               <TextField
                 className="loginInput-field"
                 variant="filled"
-                id="email"
+                fullWidth
+                id="user"
                 label="Usuário"
                 margin="normal"
                 size="small"
                 color="secondary"
+                InputProps={{ disableUnderline: true }}
                 {...register("username")}
                 error={!!errors.username}
                 helperText={errors.username?.message}
@@ -84,8 +89,11 @@ const Login = () => {
               <TextField
                 className="loginInput-field"
                 variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
                 placeholder="senha"
                 id="password"
+                type="password"
                 label="Senha"
                 margin="normal"
                 size="small"
@@ -97,20 +105,20 @@ const Login = () => {
             </div>
 
             <div className="btnBox">
-              <button type="submit" variant="contained" color="secondary">
+              <Button type="submit" variant="contained" color="secondary">
                 {" "}
                 Logar
-              </button>
+              </Button>
             </div>
             <div className="btnBox btnBox-cadastrar">
-              <button
+              <Button
                 onClick={() => history.push("/signup")}
                 variant="contained"
                 color="secondary"
               >
                 {" "}
                 Cadastrar
-              </button>
+              </Button>
             </div>
           </form>
         </C.Container>

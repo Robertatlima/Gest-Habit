@@ -5,6 +5,7 @@ import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import Header from "../../components/NavBar";
 
 const SignUp = () => {
   const history = useHistory();
@@ -51,71 +52,108 @@ const SignUp = () => {
   };
 
   return (
-    <C.Container>
-      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="name"
-            label="Nome"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("username")}
-            error={!!errors.username}
-            helperText={errors.username?.message}
-          />
+    <>
+      <Header destiny="login" name="register" />
+      <C.RegisterContainer>
+        <C.Container>
+          <form className="formulario" onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <h2>Cadastrar</h2>
+            </div>
+            <div className="registerInput">
+              <TextField
+                className="registerInput-field"
+                variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
+                id="name"
+                label="Nome"
+                type="name"
+                margin="normal"
+                size="small"
+                color="secondary"
+                {...register("username")}
+                error={!!errors.username}
+                helperText={errors.username?.message}
+              />
+            </div>
+            <div className="registerInput">
+              <TextField
+                classeName="registerInput-field"
+                variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
+                id="email"
+                label="Email"
+                type="email"
+                margin="normal"
+                size="small"
+                color="secondary"
+                {...register("email")}
+                error={!!errors.email}
+                helperText={errors.email?.message}
+              />
+            </div>
+            <div className="registerInput">
+              <TextField
+                classeName="registerInput-field"
+                variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
+                id="password"
+                label="Senha"
+                type="password"
+                margin="normal"
+                size="small"
+                color="secondary"
+                {...register("password")}
+                error={!!errors.password}
+                helperText={errors.password?.message}
+              />
+            </div>
+            <div className="registerInput">
+              <TextField
+                classeName="registerInput-field"
+                variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
+                id="confirmPassword"
+                type="password"
+                label="Confirmar senha"
+                margin="normal"
+                size="small"
+                color="secondary"
+                {...register("confirmPassword")}
+                error={!!errors.confirmPassword}
+                helperText={errors.confirmPassword?.message}
+              />
+            </div>
+            <div className="btnBox">
+              <Button type="submit" variant="contained" color="secondary">
+                {" "}
+                Cadastrar
+              </Button>
+            </div>
+            <div className="btnBox btnBox-login">
+              <Button
+                onClick={() => history.push("/login")}
+                variant="contained"
+                color="secondary"
+              >
+                {" "}
+                Login
+              </Button>
+            </div>
+          </form>
+        </C.Container>
+        <div className="title-register">
+          <h1>
+            <span>Feel good with </span>
+            your Habits
+          </h1>
         </div>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="email"
-            label="Email"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("email")}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-        </div>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="password"
-            label="Senha"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("password")}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-        </div>
-        <div classeName="input">
-          <TextField
-            variant="outlined"
-            id="confirmPassword"
-            label="Confirmar senha"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("confirmPassword")}
-            error={!!errors.confirmPassword}
-            helperText={errors.confirmPassword?.message}
-          />
-        </div>
-        <div>
-          <Button type="submit" variant="contained" color="secondary">
-            {" "}
-            Cadastrar
-          </Button>
-        </div>
-        <p>
-          Já possui uma conta? <Link to="/login">Entrar</Link>
-        </p>
-      </form>
-    </C.Container>
+      </C.RegisterContainer>
+    </>
   );
 };
 export default SignUp;

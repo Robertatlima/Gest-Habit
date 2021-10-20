@@ -6,6 +6,8 @@ export const LoginContainer = styled.div`
   height: 100vh;
   position: fixed;
   background: var(--color-primary);
+  display: flex;
+  align-items: center;
 `;
 
 export const Container = styled.div`
@@ -13,15 +15,19 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 2px solid;
+
   width: 500px;
   height: 430px;
   background: #fff;
   max-width: 499px;
-  position: relative;
-  top: calc(50vh - 250px);
-  left: 14vw;
+  /* position: relative;
+  top: calc(50vh - 250px); */
+  /* left: 14vw; */
 
+  h1 {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
   h2 {
     color: var(--color-black);
     font-family: Roboto, sans-serif;
@@ -39,12 +45,16 @@ export const Container = styled.div`
     justify-content: space-evenly;
   }
   .loginInput {
+    width: 95%;
+    height: 60px;
+    text-decoration: none;
+    border-radius: 8px;
   }
+  .loginInput div {
+    border-radius: 8px;
+    margin: 0;
+    height: 60px;
 
-  .loginInput-field {
-    background: var(--color-gray50);
-    width: 400px;
-  }
   .btnBox {
     width: 95%;
 
