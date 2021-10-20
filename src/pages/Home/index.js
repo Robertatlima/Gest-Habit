@@ -1,99 +1,100 @@
-import Header from "../../components/NavBar";
-import { Container, ContainerFooter, ContainerMiddle } from "./styles";
-import imgColab from '../../assets/img/colaboladores.png'
-import imgRoberta from '../../assets/img/Roberta.jpeg';
-import imgRafael from '../../assets/img/Rafael.jpeg';
-import imgGustavo from '../../assets/img/Gustavo.jpeg'
-import imgFlavio from '../../assets/img/Flavio.jpeg'
-import Button from '../../components/Button'
-import imgDuvida from '../../assets/img/duvida.png'
-
+import {
+  Container,
+  ContainerTop,
+  ContainerFooter,
+  ContainerMiddle,
+} from "./styles";
+import imgColab from "../../assets/img/colaboladores.png";
+import imgRoberta from "../../assets/img/Roberta.jpeg";
+import imgRafael from "../../assets/img/Rafael.jpeg";
+import imgGustavo from "../../assets/img/Gustavo.jpeg";
+import imgFlavio from "../../assets/img/Flavio.jpeg";
+import Button from "../../components/Button";
+import imgDuvida from "../../assets/img/duvida.png";
 
 const Home = () => {
-
   return (
-    <>
-
-
-      <Container>
-        <div>
-          <figcaption>
-            <img src={`${imgColab}`} alt="" />
-          </figcaption>
-        </div>
-
-        <div>
-          <p>
-            <h1>Bons hábitos mudam pessoas</h1>
-            Procure hábitos saudáveis, aprenda novos
-            hábitos e pratique esportes. Com amigos é ainda melhor. Experimete!
-          </p>
-          <Button schema={false} children={'Começar'} />
-        </div>
-
-      </Container>
+    <Container>
+      <ContainerTop>
+        <main>
+          <div>
+            <figcaption>
+              <img src={`${imgColab}`} alt="" />
+            </figcaption>
+          </div>
+          <aside>
+            <h1>Todos seus hábitos.</h1>
+            <h1>Um lugar.</h1>
+            <p>
+              Procure hábitos saudáveis, aprenda novos hábitos e pratique
+              esportes. Com amigos é ainda melhor. Experimete!
+            </p>
+            <Button
+              className="startbutton"
+              schema={false}
+              children={"Começar"}
+            />
+          </aside>
+        </main>
+      </ContainerTop>
 
       <ContainerMiddle>
-
-        <div>
-          <p>
-            <h1>Bons hábitos mudam pessoas</h1>
-            Procure hábitos saudáveis, aprenda novos
-            hábitos e pratique esportes. Com amigos é ainda melhor. Experimete!
-          </p>
-         
-        </div>
-        <div>
-          <figcaption>
-            <img src={`${imgDuvida}`} alt="" />
-          </figcaption>
-        </div>
-
-
+        <main>
+          <aside>
+            <h1>Todos seus hábitos.</h1>
+            <h1>Um lugar.</h1>
+            <p>
+              Procure hábitos saudáveis, aprenda novos hábitos e pratique
+              esportes. Com amigos é ainda melhor. Experimete!
+            </p>
+          </aside>
+          <div>
+            <figcaption>
+              <img src={`${imgDuvida}`} alt="" />
+            </figcaption>
+          </div>
+        </main>
       </ContainerMiddle>
       <ContainerFooter>
-        <div>
+        <main>
           <div>
             <figcaption>
-              <img src={`${imgRoberta}`} alt="" />
+              <img src={`${imgRoberta}`} alt="Roberta" />
             </figcaption>
           </div>
-          <div>
-            <p>
-              <p>
-                <h1>Bons hábitos mudam pessoas</h1>
-                Procure hábitos saudáveis, aprenda novos
-                hábitos e pratique esportes. Com amigos é ainda melhor. Experimete!
-              </p>
-            </p>
-          </div>
-
+          <aside>
+            <div>
+              <div className="centerContainer">
+                <h1>Projeto</h1>
+                <h1>Sprint 4</h1>
+                <p>
+                  Disponibilizado para sua apreciação pelos seguintes membros do
+                  grupo
+                </p>
+              </div>
+              <div className="centerBottomContainer">
+                <div>
+                  <figcaption>
+                    <img src={`${imgFlavio}`} alt="Flávio" />
+                  </figcaption>
+                </div>
+                <div>
+                  <figcaption>
+                    <img src={`${imgRafael}`} alt="Rafael" />
+                  </figcaption>
+                </div>
+              </div>
+            </div>
+          </aside>
           <div>
             <figcaption>
-              <img src={`${imgRafael}`} alt="" />
+              <img src={`${imgGustavo}`} alt="Gustavo" />
             </figcaption>
           </div>
-          
-        </div>
-
-        <div>
-            <div>
-              <figcaption>
-                <img src={`${imgGustavo}`} alt="" />
-              </figcaption>
-            </div>
-
-            <div>
-              <figcaption>
-                <img src={`${imgFlavio}`} alt="" />
-              </figcaption>
-            </div>
-
-        </div>
-
+        </main>
       </ContainerFooter>
-    </>
-  )
+    </Container>
+  );
 };
 
 export default Home;
