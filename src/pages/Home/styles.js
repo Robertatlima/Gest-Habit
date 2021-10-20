@@ -53,9 +53,6 @@ p{
 }
 `
 
-  margin: 0 auto;
-`;
-
 
 export const ContainerTop = styled.div`
   background-color: var(--color-primary);
@@ -108,58 +105,6 @@ export const ContainerTop = styled.div`
   }
 `;
 
-export const ContainerMiddle = styled.div`
-  background-color: var(--color-goals);
-  height: 600px;
-
-  main {
-    max-width: 1440px;
-    padding: 30px;
-    height: 100%;
-    width: 100%;
-  }
-
-  aside,
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  h1,
-  p {
-    margin-bottom: 20px;
-  }
-
-  img {
-    display: none;
-    text-align: center;
-  }
-  @media (min-width: 700px) {
-    img {
-      display: inherit;
-    }
-    main {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-end;
-      padding-bottom: 0;
-    }
-    aside {
-      align-self: flex-start;
-      align-items: flex-start;
-      text-align: left;
-      width: 500px;
-      margin-left: 150px;
-      margin-top: 75px;
-    }
-    .startbutton {
-      margin-left: 0;
-    }
-  }
-`;
 
 export const ContainerFooter = styled.div`
   background-color: var(--color-group);
