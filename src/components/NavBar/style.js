@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const NavBarConteiner = styled.div`
-  background-color: var(--color-gray50);
-  border-bottom: 1px solid #fff;
-  position: fixed;
+  background-color: #ffffff;
+
   width: 100%;
+
   .header-conteudo {
     max-width: 1200px;
     height: 60px;
