@@ -7,9 +7,9 @@ export const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-  `
-  
-  export const ButtonsContainer = styled.div`
+`;
+
+export const ButtonsContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex: 1;
@@ -19,28 +19,31 @@ export const Container = styled.div`
   .link {
     text-decoration: none;
   }
-  .button{
+  .button {
     width: 250px;
   }
-  div{
+  div {
     margin-right: 10px;
     height: 60px;
     font-weight: bold;
   }
-  #search{
+  #search {
     width: 446px;
     height: 60px;
   }
-  `
-  export const ListContainer = styled.ul`
+`;
+export const ListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  Width: 1000px;
+  width: 850px;
   flex-direction: row;
   flex: 1;
   /* align-items: center;
   justify-content:center; */
   margin-left: 20px;
-  
-
-  `
+  li {
+    list-style-type: none;
+    width: 50%;
+    margin-top: 5px;
+  }
+`;

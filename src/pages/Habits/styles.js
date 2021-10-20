@@ -46,5 +46,6 @@ export const ListContainer = styled.ul`
   li {
     list-style-type: none;
     width: 100%;
+    margin-top: 5px;
   }
 `;
