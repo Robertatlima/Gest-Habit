@@ -9,6 +9,8 @@ import Habits from "../pages/Habits";
 import Header from "../components/NavBar";
 import GroupDetails from "../pages/GroupDetails";
 import CardProfile from "../components/cardProfile";
+import { Container } from "./style";
+import Front from "../components/FrontCover";
 
 export const Router = () => {
   return (
@@ -29,23 +31,32 @@ export const Router = () => {
         </Route>
         <Route exact path="/groups">
           <Header logout />
-          <CardProfile />
-          <Groups />
+          <Front name='Grupos'/>
+          <Container>
+            <CardProfile />
+            <Groups />
+          </Container>
         </Route>
         <Route exact path="/allGroups">
           <Header logout />
-          <CardProfile />
-          <AllGroups/>
+          <Container>
+            <CardProfile />
+            <AllGroups />
+          </Container>
         </Route>
         <Route path="/habits">
           <Header logout />
-          <CardProfile />
-          <Habits />
+          <Container>
+            <CardProfile />
+            <Habits />
+          </Container>
         </Route>
         <Route path="/groupDetails">
           <Header logout />
-          <CardProfile />
-          <GroupDetails />
+          <Container>
+            <CardProfile />
+            <GroupDetails />
+          </Container>
         </Route>
       </Switch>
     </>

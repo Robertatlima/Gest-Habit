@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import imgProfile from "../../assets/img/profile.jpg";
 import * as C from "./styles.js";
 
-const CardProfile = ({ profile = false }) => {
+const CardProfile = () => {
   const history = useHistory();
   const { user, setUser } = useUser();
   const { auth } = useAuth();
@@ -23,22 +23,19 @@ const CardProfile = ({ profile = false }) => {
             </div>
           </div>
           <hr />
-          {!profile ? (
-            <div className="cards">
-              <Link className="links" to="habits">
-                <div className="card-habits">
-                  <h1>Habits</h1>
-                </div>
-              </Link>
-              <Link className="links" to="groups">
-                <div className="card-groups">
-                  <h1>Groups</h1>
-                </div>
-              </Link>
-            </div>
-          ) : (
-            ""
-          )}
+
+          <div className="cards">
+            <Link className="links" to="habits">
+              <div className="card-habits">
+                <h1>Habits</h1>
+              </div>
+            </Link>
+            <Link className="links" to="groups">
+              <div className="card-groups">
+                <h1>Groups</h1>
+              </div>
+            </Link>
+          </div>
         </>
       ) : (
         history.push("/login")

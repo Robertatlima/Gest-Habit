@@ -6,7 +6,7 @@ const GlobalStyleReset = createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
     overflow: none;
-
+    margin: 0 auto;
 }
-`
+`;
 export default GlobalStyleReset;
