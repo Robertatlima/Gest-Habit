@@ -1,7 +1,6 @@
 import styled from "styled-components";
-export const Container = styled.div`
-  margin: 0 auto;
-`;
+export const Container = styled.div``;
+
 export const ContainerTop = styled.div`
   background-color: var(--color-primary);
   height: 600px;
@@ -18,7 +17,7 @@ export const ContainerTop = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: left;
+    text-align: center;
   }
   h1,
   p {
@@ -28,6 +27,11 @@ export const ContainerTop = styled.div`
     display: none;
     text-align: center;
   }
+  .startbutton {
+    margin-left: 0;
+    margin: 0 auto;
+  }
+
   @media (min-width: 700px) {
     img {
       display: inherit;
@@ -38,10 +42,15 @@ export const ContainerTop = styled.div`
       padding-left: 0;
     }
     aside {
+      margin-left: 0;
       align-items: flex-start;
       text-align: left;
       width: 500px;
       margin-left: 100px;
+    }
+
+    h1 {
+      margin-left: 0;
     }
     .startbutton {
       margin-left: 0;
@@ -91,7 +100,7 @@ export const ContainerMiddle = styled.div`
       margin-left: 150px;
       margin-top: 75px;
     }
-    .startbutton {
+    h1 {
       margin-left: 0;
     }
   }
@@ -125,9 +134,6 @@ export const ContainerFooter = styled.div`
     main {
       flex-direction: row;
       justify-content: center;
-      div:nth-child(1) {
-        /* margin: 0; */
-      }
     }
     aside {
       width: 75%;
