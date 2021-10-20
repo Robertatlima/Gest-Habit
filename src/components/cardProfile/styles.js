@@ -4,8 +4,9 @@ export const Container = styled.div`
   background-color: #ffffff;
   height: 518px;
   border-radius: 20px;
-
+  margin: 0 auto;
   margin-top: 15px;
+
   .profile {
     background-color: #ffffff;
     border-radius: 10px;
@@ -69,6 +70,12 @@ export const Container = styled.div`
     border-radius: 10px;
     h1 {
       margin-left: 16px;
+    }
+  }
+  @media (max-width: 600px) {
+    height: 400px;
+    .profile {
+      display: none;
     }
   }
 `;

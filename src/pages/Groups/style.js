@@ -41,6 +41,7 @@ export const ListContainer = styled.ul`
   /* align-items: center;
   justify-content:center; */
   margin-left: 20px;
+
   li {
     list-style-type: none;
     width: 50%;

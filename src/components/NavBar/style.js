@@ -20,7 +20,9 @@ export const NavBarConteiner = styled.div`
       width: 120px;
     }
   }
-
+  .header-mobile {
+    display: none;
+  }
   .navBar {
     color: #fff;
     text-decoration: none;
@@ -52,6 +54,20 @@ export const NavBarConteiner = styled.div`
     p {
       margin-left: 5px;
       color: var(--color-gray100);
+    }
+  }
+  @media (max-width: 650px) {
+    .header-mobile {
+      display: flex;
+      h3 {
+        color: var(--color-gray100);
+        font-weight: bold;
+      }
+    }
+    .logo {
+      .img-logo {
+        display: none;
+      }
     }
   }
 `;

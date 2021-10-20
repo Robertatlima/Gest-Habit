@@ -37,15 +37,19 @@ const Habits = () => {
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
   return (
-    <>
+    <C.Container>
       <CardProfile />
       {auth ? (
-        <C.Container>
+        <C.ContainerPrincipal>
           <C.ButtonsContainer>
-            <Button variant={"contained"} onClick={handleClickInsertModal}>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={handleClickInsertModal}
+            >
               Novo Hábito
             </Button>
-            <TextField id="search" variant="outlined" />
+            {/* <TextField id="search" variant="outlined" /> */}
           </C.ButtonsContainer>
           <C.ListContainer>
             {habits?.map((habit) => {
@@ -66,11 +70,11 @@ const Habits = () => {
               handleClickCloseInsertModal={handleClickCloseInsertModal}
             />
           </Dialog>
-        </C.Container>
+        </C.ContainerPrincipal>
       ) : (
         history.push("/login")
       )}
-    </>
+    </C.Container>
   );
 };
 
