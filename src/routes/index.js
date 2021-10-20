@@ -31,9 +31,8 @@ export const Router = () => {
         </Route> */}
         <Route exact path="/groups">
           <Header logout />
-          <Front name="Grupos" />
+          {/* <Front name="Grupos" /> */}
           <Container>
-            <CardProfile />
             <Groups />
           </Container>
         </Route>

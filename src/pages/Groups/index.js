@@ -8,8 +8,14 @@ import GroupsForm from "../../components/GroupsForm";
 import { Dialog } from "@mui/material";
 import { TextField } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
-import Button from "../../components/Button"
-import { ButtonsContainer, Container, ListContainer, MainContainer } from "./style.js";
+import Button from "../../components/Button";
+import CardProfile from "../../components/cardProfile";
+import {
+  ButtonsContainer,
+  Container,
+  ListContainer,
+  ContainerPrincipal,
+} from "./style.js";
 
 const Groups = () => {
   const history = useHistory();
@@ -36,10 +42,10 @@ const Groups = () => {
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
   return (
-    <>
+    <Container>
+      <CardProfile />
       {auth ? (
-
-        <Container>
+        <ContainerPrincipal>
           <ButtonsContainer>
             <Button
               className="button"
@@ -48,7 +54,7 @@ const Groups = () => {
             >
               Novo Grupo
             </Button>
-            <TextField id="search" variant='outlined'/>
+            ?
           </ButtonsContainer>
           <div>
             <Dialog
@@ -73,11 +79,11 @@ const Groups = () => {
               );
             })}
           </ListContainer>
-        </Container>
+        </ContainerPrincipal>
       ) : (
         history.push("/login")
       )}{" "}
-    </>
+    </Container>
   );
 };
 

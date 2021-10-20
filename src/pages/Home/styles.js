@@ -159,9 +159,13 @@ export const ContainerFooter = styled.div`
     .centerBottomContainer {
       display: flex;
       flex-direction: row;
-      figcaption {
-        margin-top: 0;
-      }
     }
+  }
+  .nome {
+    margin: 0 auto;
+  }
+  a {
+    color: white;
+    font-size: 20px;
   }
 `;

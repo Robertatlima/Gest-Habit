@@ -12,6 +12,7 @@ import imgFlavio from "../../assets/img/Flavio.jpeg";
 import Button from "../../components/Button";
 import imgDuvida from "../../assets/img/duvida.png";
 import { useHistory } from "react-router-dom";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Home = () => {
   const history = useHistory();
@@ -24,9 +25,7 @@ const Home = () => {
       <ContainerTop>
         <main>
           <div>
-            <figcaption>
-              <img src={`${imgColab}`} alt="" />
-            </figcaption>
+            <img src={`${imgColab}`} alt="" />
           </div>
           <aside>
             <h1>Todos seus hábitos.</h1>
@@ -56,47 +55,75 @@ const Home = () => {
             </p>
           </aside>
           <div>
-            <figcaption>
-              <img src={`${imgDuvida}`} alt="" />
-            </figcaption>
+            <img src={`${imgDuvida}`} alt="" />
           </div>
         </main>
       </ContainerMiddle>
       <ContainerFooter>
         <main>
-          <div>
-            <figcaption>
-              <img src={`${imgRoberta}`} alt="Roberta" />
-            </figcaption>
+          <div className="nome">
+            <img src={`${imgRoberta}`} alt="Roberta" />
+
+            <h3>Roberta Lima</h3>
+            <a
+              href="https://www.linkedin.com/in/robertatlima/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <FaLinkedinIn />
+            </a>
           </div>
           <aside>
             <div>
               <div className="centerContainer">
-                <h1>Projeto</h1>
-                <h1>Sprint 4</h1>
+                <h1>Criadores do gest Habit</h1>
                 <p>
                   Disponibilizado para sua apreciação pelos seguintes membros do
                   grupo
                 </p>
               </div>
               <div className="centerBottomContainer">
-                <div>
-                  <figcaption>
-                    <img src={`${imgFlavio}`} alt="Flávio" />
-                  </figcaption>
+                <div className="nome">
+                  <img src={`${imgFlavio}`} alt="Flávio" />
+
+                  <h3>Flávio Santos</h3>
+
+                  <a
+                    href="https://www.linkedin.com/in/flaviopsantos/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <FaLinkedinIn />
+                  </a>
                 </div>
-                <div>
-                  <figcaption>
-                    <img src={`${imgRafael}`} alt="Rafael" />
-                  </figcaption>
+                <div className="nome">
+                  <img src={`${imgRafael}`} alt="Rafael" />
+
+                  <h3>Rafael Kammer</h3>
+
+                  <a
+                    href="https://www.linkedin.com/in/rafael-kammer/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <FaLinkedinIn />
+                  </a>
                 </div>
               </div>
             </div>
           </aside>
-          <div>
-            <figcaption>
-              <img src={`${imgGustavo}`} alt="Gustavo" />
-            </figcaption>
+          <div className="nome">
+            <img src={`${imgGustavo}`} alt="Gustavo" />
+
+            <h3>Gustavo Lira </h3>
+
+            <a
+              href="https://www.linkedin.com/in/gustavo-lira-ribeiro-gomes/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <FaLinkedinIn />
+            </a>
           </div>
         </main>
       </ContainerFooter>
