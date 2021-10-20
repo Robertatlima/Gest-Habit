@@ -6,9 +6,10 @@ import { useHistory, Link } from "react-router-dom";
 import Group from "../../components/GroupCard";
 import GroupsForm from "../../components/GroupsForm";
 import { Dialog } from "@mui/material";
-import { Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
-import * as C from "./styles.js";
+import Button from "../../components/Button"
+import { ButtonsContainer, Container, ListContainer, MainContainer } from "./style.js";
 
 const Groups = () => {
   const history = useHistory();
@@ -35,21 +36,20 @@ const Groups = () => {
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
   return (
-    <C.Container>
+    <>
       {auth ? (
-        <div>
-          <Button
-            className="button"
-            variant={"contained"}
-            onClick={handleClickInsertModal}
-          >
-            Novo grupo
-          </Button>
-          <Link className="link" to="/allGroups">
-            <Button className="button" variant={"contained"}>
-              Encontrar
+
+        <Container>
+          <ButtonsContainer>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={handleClickInsertModal}
+            >
+              Novo Grupo
             </Button>
-          </Link>
+            <TextField id="search" variant='outlined'/>
+          </ButtonsContainer>
           <div>
             <Dialog
               open={insertModal}
@@ -64,7 +64,7 @@ const Groups = () => {
             </Dialog>
           </div>
 
-          <ul>
+          <ListContainer>
             {groups?.map((group) => {
               return (
                 <li key={group.id}>
@@ -72,12 +72,12 @@ const Groups = () => {
                 </li>
               );
             })}
-          </ul>
-        </div>
+          </ListContainer>
+        </Container>
       ) : (
         history.push("/login")
       )}{" "}
-    </C.Container>
+    </>
   );
 };
 
