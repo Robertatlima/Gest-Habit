@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   flex-direction: column;
-  flex: 1;
   `
   
   export const ButtonsContainer = styled.div`
@@ -35,10 +35,12 @@ export const Container = styled.div`
   export const ListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  flex-wrap: wrap;
-    align-items: center;
-    justify-content: start;
-    margin-left: 20px;
-    margin-bottom: -20px;
+  Width: 1000px;
+  flex-direction: row;
+  flex: 1;
+  /* align-items: center;
+  justify-content:center; */
+  margin-left: 20px;
+  
 
   `

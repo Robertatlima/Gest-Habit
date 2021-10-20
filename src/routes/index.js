@@ -33,7 +33,6 @@ export const Router = () => {
           <Header logout />
           <Front name='Grupos'/>
           <Container>
-           
             <CardProfile />
             <Groups />
           </Container>

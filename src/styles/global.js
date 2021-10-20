@@ -37,8 +37,7 @@ h3{
 }
 
 .largeCardContainer{
-    width: 420px;
-    height: 160px;
+    width: 100%;
     background-color: var(--color-group);
     border: 1px solid white;
     border-radius: 8px;
