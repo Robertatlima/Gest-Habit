@@ -11,8 +11,14 @@ import imgGustavo from "../../assets/img/Gustavo.jpeg";
 import imgFlavio from "../../assets/img/Flavio.jpeg";
 import Button from "../../components/Button";
 import imgDuvida from "../../assets/img/duvida.png";
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
+  const history = useHistory();
+  const handleComecar = () => {
+    history.push("/signup");
+  };
+
   return (
     <Container>
       <ContainerTop>
@@ -33,6 +39,7 @@ const Home = () => {
               className="startbutton"
               schema={false}
               children={"Começar"}
+              onClick={handleComecar}
             />
           </aside>
         </main>
