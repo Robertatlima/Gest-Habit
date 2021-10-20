@@ -7,9 +7,12 @@ const Header = ({ destiny, name, logout = false }) => {
   return (
     <NavBarConteiner>
       <div className="header-conteudo">
-        <div className="logo">
-          <img className="img-logo" src={`${Logo}`} alt="Imagem Logo" />
-        </div>
+        <Link className="link-navBar" to="/">
+          <div className="logo">
+            <img className="img-logo" src={`${Logo}`} alt="Imagem Logo" />
+          </div>
+        </Link>
+
         {!logout ? (
           <nav className="navBar">
             <Link className="link-navBar" to="signup">

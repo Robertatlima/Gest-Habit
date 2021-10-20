@@ -26,12 +26,12 @@ export const Router = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/dashboard">
+        {/* <Route path="/dashboard">
           <Dashboard />
-        </Route>
+        </Route> */}
         <Route exact path="/groups">
           <Header logout />
-          <Front name='Grupos'/>
+          <Front name="Grupos" />
           <Container>
             <CardProfile />
             <Groups />
@@ -47,7 +47,6 @@ export const Router = () => {
         <Route path="/habits">
           <Header logout />
           <Container>
-            <CardProfile />
             <Habits />
           </Container>
         </Route>

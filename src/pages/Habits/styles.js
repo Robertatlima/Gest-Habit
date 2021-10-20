@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 15px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -41,9 +42,10 @@ export const ListContainer = styled.ul`
   /* align-items: center;
   justify-content:center; */
   margin-left: 20px;
+
   li {
     list-style-type: none;
-    width: 50%;
+    width: 100%;
     margin-top: 5px;
   }
 `;

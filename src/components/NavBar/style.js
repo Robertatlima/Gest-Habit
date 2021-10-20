@@ -28,17 +28,30 @@ export const NavBarConteiner = styled.div`
     text-transform: uppercase;
     line-height: 18px;
     text-decoration: none;
+
+    h3 {
+      color: var(--color-gray100);
+      margin: 5px;
+      text-decoration: none;
+      font-family: roboto, sans-serif;
+    }
+    .link-navBar--login {
+      color: var(--color-black);
+    }
   }
+
   .link-navBar {
     text-decoration: none;
   }
   .link-navBar-logout {
     text-decoration: none;
-    color: #7f7f7f;
     display: flex;
+    color: var(--color-gray100);
+    font-weight: bold;
     font-size: 18px;
     p {
       margin-left: 5px;
+      color: var(--color-gray100);
     }
   }
 `;

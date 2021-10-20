@@ -9,7 +9,9 @@ import jwt_decode from "jwt-decode";
 import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
 
-import Button from "../../components/Button";
+import { Button } from "@material-ui/core";
+import Header from "../../components/NavBar";
+// import Button from "../../components/Button";
 const Login = () => {
   const { setUser } = useUser();
   const { setAuth } = useAuth();
@@ -50,64 +52,78 @@ const Login = () => {
 
         setAuth(true);
 
-        history.push("/dashboard");
+        history.push("/habits");
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <C.Container>
-      <h2>Login</h2>
-      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
+    <>
+      <Header destiny="login" />
+      <C.LoginContainer>
         <div>
-          <TextField
-            variant="outlined"
-            id="email"
-            label="Usuário"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("username")}
-            error={!!errors.username}
-            helperText={errors.username?.message}
-          />
+          <h1>Gest Habit</h1>
         </div>
-        <div>
-          <TextField
-            variant="outlined"
-            id="password"
-            label="Senha"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("password")}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-        </div>
+        <C.Container>
+          <form className="formulario" onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <h2>Login</h2>
+            </div>
+            <div className="loginInput">
+              <TextField
+                className="loginInput-field"
+                variant="filled"
+                fullWidth
+                id="user"
+                label="Usuário"
+                margin="normal"
+                size="small"
+                color="secondary"
+                InputProps={{ disableUnderline: true }}
+                {...register("username")}
+                error={!!errors.username}
+                helperText={errors.username?.message}
+              />
+            </div>
+            <div className="loginInput">
+              <TextField
+                className="loginInput-field"
+                variant="filled"
+                fullWidth
+                InputProps={{ disableUnderline: true }}
+                placeholder="senha"
+                id="password"
+                type="password"
+                label="Senha"
+                margin="normal"
+                size="small"
+                color="secondary"
+                {...register("password")}
+                error={!!errors.password}
+                helperText={errors.password?.message}
+              />
+            </div>
 
-        <div>
-          <button 
-            type="submit" 
-           >
-          Logar
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={() => history.push("/signup")}
-            variant="contained"
-            color="secondary"
-          >
-            {" "}
-            Cadastrar
-          </button>
-        </div>
-        <p>
-          Novo usuário? <Link to="/signup">Cadastre-se</Link>
-        </p>
-      </form>
-    </C.Container>
+            <div className="btnBox">
+              <Button type="submit" variant="contained" color="secondary">
+                {" "}
+                Logar
+              </Button>
+            </div>
+            <div className="btnBox btnBox-cadastrar">
+              <Button
+                onClick={() => history.push("/signup")}
+                variant="contained"
+                color="secondary"
+              >
+                {" "}
+                Cadastrar
+              </Button>
+            </div>
+          </form>
+        </C.Container>
+      </C.LoginContainer>
+    </>
   );
 };
 
