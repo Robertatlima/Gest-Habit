@@ -10,6 +10,7 @@ import { TextField } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
 import Button from "../../components/Button";
 import CardProfile from "../../components/cardProfile";
+import AllGroups from "../AllGroups"
 import {
   ButtonsContainer,
   Container,
@@ -40,6 +41,10 @@ const Groups = () => {
 
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
+  const [select, setSelect] = useState(false)
+  const handleSelect = (value) => {
+    setSelect(value)
+  }
 
   return (
     <Container>
@@ -53,6 +58,20 @@ const Groups = () => {
               onClick={handleClickInsertModal}
             >
               Novo Grupo
+            </Button>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={()=>handleSelect(true)}
+            >
+              Encontrar
+            </Button>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={()=>handleSelect(false)}
+            >
+              Seus Grupos
             </Button>
             ?
           </ButtonsContainer>
@@ -69,16 +88,20 @@ const Groups = () => {
               )}
             </Dialog>
           </div>
+          {select ?
+            <ListContainer>
+              <AllGroups />
+            </ListContainer> :
+            <ListContainer>
+              {groups?.map((group) => {
+                return (
+                  <li key={group.id}>
+                    <Group group={group} />
+                  </li>
+                );
+              })}
+            </ListContainer>}
 
-          <ListContainer>
-            {groups?.map((group) => {
-              return (
-                <li key={group.id}>
-                  <Group group={group} />
-                </li>
-              );
-            })}
-          </ListContainer>
         </ContainerPrincipal>
       ) : (
         history.push("/login")
