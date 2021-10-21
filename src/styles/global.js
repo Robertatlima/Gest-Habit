@@ -19,12 +19,11 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
    background-color: var(--color-gray50); 
-   
+   color: var(--color-gray50)
 }
 h1, h2, h3, p{
     font-family: "Rubik", sans-serif;
     font-style: normal;
-    color: var(--color-gray50);
 }
 h1{
     font-size: 50px;
@@ -34,6 +33,10 @@ h2{
 }
 h3{
     font-size: 18px;
+}
+p{
+    font-size: 16px;
+    font-weight: lighter;
 }
 
 .largeCardContainer{
@@ -63,10 +66,75 @@ h3{
     box-shadow: 7px 2px 15px -6px #000000;
 }
 
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    padding: 10px;
+    background-color: var(--color-gray50);
+    color: var(--color-black);
 
-p{
-    font-size: 16px;
-    font-weight: lighter;
+    .modalHeader{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;        
+        margin: 0 0 15px 0; 
+        
+        div{
+            font-family: "Rubik", sans-serif;
+            font-size:18px;
+            color: var(--color-gray100);
+            margin: 0 5px 0 0;
+            cursor: pointer;
+        }
+
+        h3{
+            margin: 0;
+        }
+    }
+
+    form{
+        width: 100%;
+        margin: 0;
+    }
+    h3{
+        align-self: flex-start;
+        margin: 15px 0;
+        font-size: 18px;
+    }
+    .submitbutton{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px
+    }
+    .selectbutton{
+        width: 100%;
+        margin:  0;
+    }
+    .centerbutton{
+        margin-left: 10px;
+        margin-right: 10px
+    }
+    .input{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        text-align: left;
+    }
+    
+    @media (min-width: 540px) {
+    width: 540px;
+    padding: 20px;
+    .selectbutton, .submitbutton{
+        height: 60px;
+    }
+    .submitbutton{
+        margin-top: 20px
+    }
+  }
 }
+
 `;
 export default GlobalStyle;
