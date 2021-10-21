@@ -8,13 +8,21 @@ export const LoginContainer = styled.div`
   background: var(--color-primary);
   display: flex;
   align-items: center;
+  .mobile {
+    display: none;
+  }
+
   /* background-image: url({${svg}}) no-repeat; */
   @media (max-width: 700px) {
     div h1 span {
       color: var(--color-black);
     }
-    flex-direction: column;
-    justify-content: center;
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
   }
 `;
 
