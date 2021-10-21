@@ -70,11 +70,16 @@ const Login = () => {
 
       <C.LoginContainer>
         <div>
-          <h1>
+          <h1 className="desktop">
             Gest <span>Habit</span>
           </h1>
         </div>
         <C.Container>
+          <div className="mobile">
+            <h1>
+              Gest <span>Habit</span>
+            </h1>
+          </div>
           <form className="formulario" onSubmit={handleSubmit(handleForm)}>
             <div className="formulario-title">
               <h2>Login</h2>
