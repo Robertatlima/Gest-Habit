@@ -27,7 +27,7 @@ export const ButtonsContainer = styled.div`
   .button {
     width: 200px;
     position: sticky;
-    margin-left: -8px;
+    margin-left: -10px;
     text-align: center;
     @media (max-width: 700px) {
       font-size: 14px;
