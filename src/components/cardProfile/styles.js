@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #ffffff;
-  height: 518px;
+  height: 485px;
   border-radius: 20px;
+  width: 350px;
   margin: 0 auto;
   margin-top: 15px;
 
@@ -19,7 +20,7 @@ export const Container = styled.div`
   }
   .profile-left {
     img {
-      width: 110px;
+      width: 90px;
       border-radius: 50%;
     }
   }
@@ -44,10 +45,10 @@ export const Container = styled.div`
   }
   .card-habits {
     background-color: #d9b24a;
-    width: 300px;
+    width: 310px;
     display: flex;
     align-items: center;
-    height: 162px;
+    height: 145px;
     margin-top: 10px;
     color: #ffffff;
     margin-left: 20px;
@@ -63,17 +64,22 @@ export const Container = styled.div`
     background-color: #8092ed;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 310px;
     margin-left: 20px;
     margin-right: 20px;
-    height: 162px;
+    height: 145px;
     border-radius: 10px;
     h1 {
       margin-left: 16px;
     }
   }
   @media (max-width: 600px) {
-    height: 400px;
+    height: 370px;
+    width: 320px;
+    .card-habits,
+    .card-groups {
+      width: 270px;
+    }
     .profile {
       display: none;
     }

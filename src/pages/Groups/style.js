@@ -18,8 +18,6 @@ export const ContainerPrincipal = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-
-  width: 100%;
   margin-left: 30px;
   padding: 0;
   background-color: var(--color-gray50);
@@ -27,8 +25,9 @@ export const ButtonsContainer = styled.div`
     text-decoration: none;
   }
   .button {
-    width: 25%;
-    margin-left: -5px;
+    width: 200px;
+    position: sticky;
+    margin-left: -8px;
     text-align: center;
     @media (max-width: 700px) {
       font-size: 14px;
@@ -46,19 +45,19 @@ export const ButtonsContainer = styled.div`
 export const ListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
+  max-width: 774px;
   max-height: 451px;
-  flex-direction: row;
-  overflow-y: scroll;
-  margin-top: 5px;
-  flex: 1;
+
+  overflow-y: auto;
+  margin-top: 20px;
+
   /* align-items: center;
   justify-content:center; */
   margin-left: 20px;
 
   li {
     list-style-type: none;
-    width: 100%;
+    width: 50vw;
     margin-top: 5px;
     border-radius: 10px;
     text-align: center;
