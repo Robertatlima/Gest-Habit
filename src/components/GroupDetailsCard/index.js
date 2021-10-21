@@ -54,7 +54,7 @@ const GroupDetailsCard = ({ group, handleClickCloseModal }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => {
+      .then(() => {
         handleClickCloseModal();
       })
       .catch((err) => {
