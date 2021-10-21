@@ -30,7 +30,6 @@ const AllGroups = ({ group }) => {
   }, []);
 
   return (
-    <C.Container>
       <div>
         <h1>Encontrar</h1>
         <AiOutlineCloseCircle />
@@ -43,7 +42,6 @@ const AllGroups = ({ group }) => {
           );
         })}
       </div>
-    </C.Container>
   );
 };
 export default AllGroups;
