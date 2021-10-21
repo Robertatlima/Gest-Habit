@@ -27,7 +27,7 @@ const GroupDetails = () => {
                 <Activities groupId={groupId} />
               </div>
 
-              <div className="actScroll">
+              <div className="metaScroll">
                 <Goals groupId={groupId} />
               </div>
             </div>

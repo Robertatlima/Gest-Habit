@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Group from "../../components/GroupCard";
-import * as C from "./styles.js";
 import api from "../../services/api";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import Header from "../../components/NavBar";
+import { ListContainer } from "../Groups/style";
 const AllGroups = ({ group }) => {
   const [groupsAll, setGroupsAll] = useState([]);
   const token = localStorage.getItem("token");
@@ -34,7 +34,7 @@ const AllGroups = ({ group }) => {
       <h1>Encontrar</h1>
       <AiOutlineCloseCircle />
 
-      {groupsAll.map((group) => {
+      {groupsAll?.map((group) => {
         return (
           <div key={group.id} className="card">
             <Group group={group} />
@@ -42,6 +42,7 @@ const AllGroups = ({ group }) => {
         );
       })}
     </div>
+
   );
 };
 export default AllGroups;
