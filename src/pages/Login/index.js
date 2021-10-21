@@ -12,6 +12,7 @@ import logo from "../../assets/img/Logo.png";
 import svg from "../../assets/img/fundoHome.png";
 import { Button } from "@material-ui/core";
 import Header from "../../components/NavBar";
+import "./styles.css";
 // import Button from "../../components/Button";
 const Login = () => {
   const { setUser } = useUser();
@@ -63,7 +64,9 @@ const Login = () => {
   }
   return (
     <>
-      <Header destiny="login" />
+      <div className="navBar">
+        <Header destiny="login" />
+      </div>
 
       <C.LoginContainer>
         <div>
