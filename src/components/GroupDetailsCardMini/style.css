@@ -11,8 +11,8 @@
 }
 
 .detailscard h3,
-p,
-div {
+.detailscard p,
+.detailscard div {
   margin: 0;
 }
 
