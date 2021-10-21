@@ -12,6 +12,7 @@ import logo from "../../assets/img/Logo.png";
 import svg from "../../assets/img/fundoHome.png";
 import { Button } from "@material-ui/core";
 import Header from "../../components/NavBar";
+import { toast } from "react-toastify";
 import "./styles.css";
 // import Button from "../../components/Button";
 const Login = () => {
@@ -47,9 +48,11 @@ const Login = () => {
               username: response.data.username,
               email: response.data.email,
             });
+            toast.success("Olá, é sempre bom encontrar você por aqui =D");
           })
           .catch((err) => {
             console.log(err);
+            toast.error("Olá, é sempre bom encontrar você por aqui =D");
           });
 
         setAuth(true);
