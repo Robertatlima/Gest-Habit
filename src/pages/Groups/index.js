@@ -43,7 +43,7 @@ const Groups = () => {
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-  const { subscribible, setSubscribible } = useSubscribible();
+  const { subscribible, setSubscribible } = useSubscribible(false);
 
   const [select, setSelect] = useState(false);
   const handleSelect = (value) => {
