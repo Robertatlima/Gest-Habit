@@ -17,21 +17,27 @@ export const ContainerPrincipal = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  margin-left: 30px;
-  padding: 0;
-  background-color: var(--color-gray50);
+  @media (min-width: 700px){
+    display: flex;
+    margin-left: 30px;
+    width:820px;
+    padding: 0;
+    background-color: var(--color-gray50);
+  }
+  width:100%;
+ 
   .link {
     text-decoration: none;
   }
   .button {
-    width: 200px;
-    position: sticky;
-    margin-left: -10px;
-    text-align: center;
-    @media (max-width: 700px) {
-      font-size: 14px;
+    @media (min-width: 700px){
+      width: 200px;
+      position: sticky;
+      text-align: center;
     }
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 20px;
   }
   div {
     height: 60px;
@@ -43,11 +49,11 @@ export const ButtonsContainer = styled.div`
   } */
 `;
 export const ListContainer = styled.ul`
+ @media (min-width: 700px){
   display: flex;
   flex-wrap: wrap;
   max-width: 774px;
   max-height: 451px;
-
   overflow-y: auto;
   margin-top: 20px;
 
@@ -63,6 +69,11 @@ export const ListContainer = styled.ul`
     text-align: center;
     /* height: 30%; */
   }
+  width: 100%;
+  li{
+    width: 100%;
+  }
+}
   /* @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
