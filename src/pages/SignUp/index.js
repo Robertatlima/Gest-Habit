@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import Header from "../../components/NavBar";
-
+import { toast } from "react-toastify";
 const SignUp = () => {
   const history = useHistory();
 
@@ -45,9 +45,10 @@ const SignUp = () => {
       .post("https://kenzie-habits.herokuapp.com/users/", requestData)
       .then((response) => {
         history.push(`/login`);
+        toast.success("Seja bem vindo a plataforma do Gest Habit");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Erro ao se cadastrar. Confira os dados informados");
       });
   };
 

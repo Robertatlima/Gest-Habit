@@ -1,5 +1,3 @@
-
-
 import { Dialog } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import HabitCard from "../HabitCard";
@@ -32,7 +30,7 @@ const HabitCardMini = ({ habit }) => {
   return (
     <>
       <div className="minicard" onClick={handleClickCardModal}>
-        <p>Título: {habit.title}</p>
+        <h2> {habit.title}</h2>
         <p>Categoria: {habit.category}</p>
       </div>
 

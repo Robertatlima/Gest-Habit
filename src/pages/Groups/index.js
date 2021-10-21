@@ -11,6 +11,7 @@ import { useGroups } from "../../providers/Groups";
 import Button from "../../components/Button";
 import CardProfile from "../../components/cardProfile";
 import AllGroups from "../AllGroups";
+import { toast } from "react-toastify";
 import {
   ButtonsContainer,
   Container,
@@ -34,7 +35,9 @@ const Groups = () => {
       .get("https://kenzie-habits.herokuapp.com/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setGroups(response.data))
+      .then((response) => {
+        setGroups(response.data);
+      })
       .catch((err) => {
         console.log(err);
       });

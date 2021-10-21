@@ -3,12 +3,11 @@ import { NavBarConteiner } from "./style";
 import Logo from "../../assets/img/Logo.png";
 import Button from "../Button";
 import { FiLogOut } from "react-icons/fi";
-import userEvent from "@testing-library/user-event";
 
 import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
 const Header = ({ destiny, name, logout = false }) => {
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   const { logoutF } = useAuth();
   return (
     <NavBarConteiner>

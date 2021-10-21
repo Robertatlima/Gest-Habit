@@ -7,7 +7,7 @@ import Button from "../Button";
 import { useState } from "react";
 import axios from "axios";
 import { TextField } from "@mui/material";
-
+import { toast } from "react-toastify";
 const CardProfile = () => {
   const history = useHistory();
   const { user, setUser } = useUser();
@@ -48,9 +48,10 @@ const CardProfile = () => {
       })
       .then(() => {
         setEdit(true);
+        toast.success("Uhu! Seu username foi atualizado ");
       })
       .catch((err) => {
-        console.log(err);
+        toast.success(" Não foi possivel atualizar seu username ");
       });
   };
 
@@ -63,7 +64,6 @@ const CardProfile = () => {
               <img src={`${imgProfile}`} alt="" />
             </div>
             <div className="profile-right">
-
               {edit ? (
                 <>
                   <h1>{user.username}</h1>
@@ -94,7 +94,6 @@ const CardProfile = () => {
                   />
                 </>
               )}
-
             </div>
           </div>
           <hr />
