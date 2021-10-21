@@ -9,15 +9,35 @@ export const RegisterContainer = styled.div`
   display: flex;
   align-items: center;
 
+  .title {
+    display: none;
+  }
   .title-register {
     text-align: initial;
     max-width: 500px;
+    position: relative;
+    bottom: 25%;
+    margin-left: 50px;
   }
+
   .title-register h1 {
     max-width: 450px;
   }
   .title-register h1 span {
     color: var(--color-black);
+  }
+  @media (max-width: 700px) {
+    .title {
+      display: initial;
+    }
+    .title h1 span {
+      color: var(--color-black);
+    }
+    .title-register {
+      display: none;
+    }
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
@@ -26,11 +46,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 500px;
+  width: 95%;
   height: 600px;
-  background: #fff;
   max-width: 499px;
-
+  min-width: 300px;
   h1 {
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -50,7 +69,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border-radius: 11px;
   }
+
   .registerInput {
     width: 95%;
     height: 60px;
@@ -101,6 +122,18 @@ export const Container = styled.div`
       border: 2px solid var(--color-gray50);
       color: var(--color-gray50);
       transition: 0.5s;
+    }
+  }
+  @media (max-width: 700px) {
+    .formulario {
+      background: inherit;
+    }
+    .formulario-title {
+      display: none;
+    }
+
+    .header {
+      display: none;
     }
   }
 `;
