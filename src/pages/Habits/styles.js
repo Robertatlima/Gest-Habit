@@ -1,79 +1,52 @@
 import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
-  width: 100%;
-  @media (max-width: 600px) {
+  max-width: 1200px;
+  @media (max-width: 850px) {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 320px;
   }
 `;
 export const ContainerPrincipal = styled.div`
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-top: 15px;
-`;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  margin-left: 30px;
-  padding: 0;
-  background-color: var(--color-gray50);
-  .link {
-    text-decoration: none;
-  }
+  width: 750px;
   .button {
-    width: 200px;
-    position: sticky;
-    margin-left: -10px;
-    text-align: center;
-    @media (max-width: 700px) {
-      font-size: 14px;
+    margin-top: 20px;
+    width: 190px;
+    height: 59px;
+    @media (max-width: 850px) {
+      font-size: 15px;
+      width: 150px;
     }
   }
-  div {
-    height: 60px;
-    font-weight: bold;
-  }
-  /* #search {
-    width: 70%;
-    height: 60px;
-  } */
 `;
+
+export const ButtonsContainer = styled.div``;
 export const ListContainer = styled.ul`
   display: flex;
-  flex-wrap: wrap;
-  max-width: 774px;
+  flex-direction: column;
   max-height: 451px;
-
   overflow-y: auto;
   margin-top: 20px;
-
-  /* align-items: center;
-  justify-content:center; */
-  margin-left: 20px;
-
+  max-width: 95%;
   li {
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    width: 50vw;
-    display: flex;
-
+    width: 100%;
+    height: 112px;
     cursor: pointer;
     background-color: #5472bf;
     padding: 20px;
-    padding-left: 50px;
     color: white;
     margin-top: 5px;
     border-radius: 10px;
     text-align: center;
-    /* height: 30%; */
   }
-  /* @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-  } */
+  @media (max-width: 1050px) {
+    max-width: 60%;
+    margin-left: 20px;
+  }
+  @media (max-width: 850px) {
+    width: 320px;
+  }
 `;
