@@ -25,12 +25,12 @@ const CardProfile = () => {
           <hr />
 
           <div className="cards">
-            <Link className="links" to="habits">
+            <Link className="links" to="/habits">
               <div className="card-habits">
                 <h1>Habits</h1>
               </div>
             </Link>
-            <Link className="links" to="groups">
+            <Link className="links" to="/groups">
               <div className="card-groups">
                 <h1>Groups</h1>
               </div>

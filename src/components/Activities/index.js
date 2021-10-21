@@ -1,8 +1,9 @@
-import { Button, Dialog } from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ActivitiesForm from "../ActivitiesForm";
 import ActivityCardMini from "../ActivityCardMini";
+import Button from "../Button";
 
 const Activities = ({ groupId }) => {
   const [activities, setActivities] = useState();
