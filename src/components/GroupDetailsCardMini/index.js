@@ -4,10 +4,19 @@ import { useEffect, useState } from "react";
 import Button from "../Button";
 import { Dialog } from "@mui/material";
 import GroupDetailsCard from "../GroupDetailsCard";
+import { useSubscribible } from "../../providers/Subscribible";
+import { useHistory } from "react-router";
 
 const GroupDetailsCardMini = ({ groupId }) => {
+  const history = useHistory();
+
+  const { subscribible } = useSubscribible();
+
   const [insertModal, setInsertModal] = useState(false);
   const [group, setGroup] = useState();
+
+  const handleClickModal = () => setInsertModal(true);
+  const handleClickCloseModal = () => setInsertModal(false);
 
   const token = localStorage.getItem("token");
 
@@ -22,8 +31,23 @@ const GroupDetailsCardMini = ({ groupId }) => {
       });
   }, [insertModal]);
 
-  const handleClickModal = () => setInsertModal(true);
-  const handleClickCloseModal = () => setInsertModal(false);
+  const handleSubscribe = () => {
+    console.log(token);
+    console.log(groupId);
+    axios
+      .post(
+        `https://kenzie-habits.herokuapp.com/groups/${groupId}/subscribe/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then(() => {
+        history.push("/groups");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -31,11 +55,21 @@ const GroupDetailsCardMini = ({ groupId }) => {
         <div className="detailscard">
           <h3>{group.name}</h3>
           <p>{group.description}</p>
-          <Button
-            className="editbutton"
-            children="Editar Informações"
-            onClick={handleClickModal}
-          />
+          {subscribible ? (
+            <Button
+              className="editbutton"
+              children="Inscrever-se"
+              schema={false}
+              onClick={handleSubscribe}
+            />
+          ) : (
+            <Button
+              className="editbutton"
+              children="Editar Informações"
+              schema={true}
+              onClick={handleClickModal}
+            />
+          )}
         </div>
       )}
       <Dialog

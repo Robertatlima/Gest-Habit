@@ -30,18 +30,18 @@ const AllGroups = ({ group }) => {
   }, []);
 
   return (
-      <div>
-        <h1>Encontrar</h1>
-        <AiOutlineCloseCircle />
+    <div>
+      <h1>Encontrar</h1>
+      <AiOutlineCloseCircle />
 
-        {groupsAll.map((group) => {
-          return (
-            <div className="card">
-              <Group group={group} />
-            </div>
-          );
-        })}
-      </div>
+      {groupsAll.map((group) => {
+        return (
+          <div key={group.id} className="card">
+            <Group group={group} />
+          </div>
+        );
+      })}
+    </div>
   );
 };
 export default AllGroups;

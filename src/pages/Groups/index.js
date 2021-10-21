@@ -10,13 +10,14 @@ import { TextField } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
 import Button from "../../components/Button";
 import CardProfile from "../../components/cardProfile";
-import AllGroups from "../AllGroups"
+import AllGroups from "../AllGroups";
 import {
   ButtonsContainer,
   Container,
   ListContainer,
   ContainerPrincipal,
 } from "./style.js";
+import { useSubscribible } from "../../providers/Subscribible";
 
 const Groups = () => {
   const history = useHistory();
@@ -41,10 +42,14 @@ const Groups = () => {
 
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
-  const [select, setSelect] = useState(false)
+
+  const { subscribible, setSubscribible } = useSubscribible();
+
+  const [select, setSelect] = useState(false);
   const handleSelect = (value) => {
-    setSelect(value)
-  }
+    setSelect(value);
+    setSubscribible(value);
+  };
 
   return (
     <Container>
@@ -62,14 +67,14 @@ const Groups = () => {
             <Button
               className="button"
               variant={"contained"}
-              onClick={()=>handleSelect(true)}
+              onClick={() => handleSelect(true)}
             >
               Encontrar
             </Button>
             <Button
               className="button"
               variant={"contained"}
-              onClick={()=>handleSelect(false)}
+              onClick={() => handleSelect(false)}
             >
               Seus Grupos
             </Button>
@@ -88,10 +93,11 @@ const Groups = () => {
               )}
             </Dialog>
           </div>
-          {select ?
+          {select ? (
             <ListContainer>
               <AllGroups />
-            </ListContainer> :
+            </ListContainer>
+          ) : (
             <ListContainer>
               {groups?.map((group) => {
                 return (
@@ -100,8 +106,8 @@ const Groups = () => {
                   </li>
                 );
               })}
-            </ListContainer>}
-
+            </ListContainer>
+          )}
         </ContainerPrincipal>
       ) : (
         history.push("/login")
