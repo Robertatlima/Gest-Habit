@@ -1,33 +1,44 @@
-import { useHistory, Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { TextField, Button } from "@material-ui/core";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { MenuItem, TextField } from "@material-ui/core";
 import axios from "axios";
 import { useUser } from "../../providers/User";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import Button from "../Button";
+import { useState } from "react";
+
+const categories = [
+  { id: 1, value: "Corpo e mente saudáveis" },
+  { id: 2, value: "Foco, força e fé" },
+  { id: 3, value: "Me poupe" },
+  { id: 4, value: "Boa noite" },
+  { id: 5, value: "Ficando em forma" },
+  { id: 6, value: "Lar, doce lar" },
+];
 
 const GroupsForm = ({ handleClickInsertModal }) => {
-  const history = useHistory();
+  const [title, setTitle] = useState();
 
-  const schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
-    category: yup.string().required("Campo Obrigatório"),
-    description: yup.string().required("Campo Obrigatório"),
-  });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const [category, setCategory] = useState("Boa noite");
+
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const [description, setDescription] = useState();
+
+  const handleDescription = (event) => {
+    setDescription(event.target.value);
+  };
 
   const { user } = useUser();
 
-  const handleForm = (data) => {
+  const handleForm = () => {
     const requestData = {
-      name: data.name,
-      category: data.category,
-      description: data.description,
+      name: title,
+      category: category,
+      description: "description",
       user: user.id,
     };
 
@@ -38,7 +49,6 @@ const GroupsForm = ({ handleClickInsertModal }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        history.push(`/groups`);
         handleClickInsertModal();
       })
       .catch((err) => {
@@ -47,57 +57,69 @@ const GroupsForm = ({ handleClickInsertModal }) => {
   };
 
   return (
-    <div>
-      <h1>Novo grupo</h1>
-      <AiOutlineCloseCircle onClick={handleClickInsertModal} />
-      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-        <div classeName="input">
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <h3>Cadastrar grupo</h3>
+        <div type="button" onClick={handleClickInsertModal}>
+          X
+        </div>
+      </div>
+      <form className="formulario">
+        <div className="input">
           <TextField
-            variant="outlined"
-            id="name"
-            label="Nome do grupo "
+            fullWidth
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
+            id="title"
+            label="Nome do grupo"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("name")}
-            error={!!errors.name}
-            helperText={errors.name?.message}
+            size="medium"
+            color="primary"
           />
         </div>
-        <div classeName="input">
-          <h2>Selecione uma categoria</h2>
+        <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            select
+            value={category}
+            onChange={handleCategory}
+            variant="filled"
             id="category"
             label="Categoria"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("category")}
-            error={!!errors.category}
-            helperText={errors.category?.message}
-          />
+            size="medium"
+            color="primary"
+          >
+            {categories.map((option) => (
+              <MenuItem key={option.id} value={option.value}>
+                {option.value}
+              </MenuItem>
+            ))}
+          </TextField>
         </div>
         <div classeName="input">
-          <h2>Descreva seu grupo</h2>
           <TextField
-            variant="outlined"
+            fullWidth
+            multiline
+            rows={4}
+            value={description}
+            onChange={handleDescription}
+            variant="filled"
             id="description"
-            label="Descrição"
+            label="Descrição do grupo"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("description")}
-            error={!!errors.description}
-            helperText={errors.description?.message}
+            size="medium"
+            color="primary"
           />
         </div>
-
         <div>
-          <Button type="submit" variant="contained" color="secondary">
-            {" "}
-            Concluir
-          </Button>
+          <Button
+            className="submitbutton"
+            schema={false}
+            children={"Cadastrar grupo"}
+            onClick={handleForm}
+          />
         </div>
       </form>
     </div>

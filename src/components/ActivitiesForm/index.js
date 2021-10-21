@@ -1,29 +1,25 @@
-import { useHistory } from "react-router-dom";
-import { Button, TextField } from "@material-ui/core";
-
+import { TextField } from "@material-ui/core";
 import axios from "axios";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+import Button from "../Button";
 
 const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
-  const history = useHistory();
+  const [title, setTitle] = useState();
 
-  const schema = yup.object().shape({
-    title: yup.string().required("Campo Obrigatório"),
-    realization_time: yup.string().required("Campo Obrigatório"),
-  });
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
+  };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const [realization_time, setRealization_time] = useState("2021-12-31");
 
-  const handleForm = (data) => {
+  const handleRealization_time = (event) => {
+    setRealization_time(event.target.value);
+  };
+
+  const handleForm = () => {
     const requestData = {
-      title: data.title,
-      realization_time: data.realization_time.concat("T00:00:00Z"),
+      title: title,
+      realization_time: `${realization_time}T18:00:00Z`,
       group: groupId,
     };
 
@@ -42,40 +38,50 @@ const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
   };
 
   return (
-    <>
-      <h2>Nova Meta</h2>
-      <form onSubmit={handleSubmit(handleForm)}>
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <h3>Criar atividade</h3>
+        <div type="button" onClick={handleClickCloseInsertModal}>
+          X
+        </div>
+      </div>
+      <form>
         <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
             id="title"
-            label="Titulo"
+            label="Nome da atividade"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("title")}
-            error={!!errors.title}
-            helperText={errors.title?.message}
+            size="medium"
+            color="primary"
           />
         </div>
         <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            value={realization_time}
+            onChange={handleRealization_time}
+            variant="filled"
             id="realization_time"
-            label="YYYY-DD-MM"
+            label="Data Limite"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("realization_time")}
-            error={!!errors.realization_time}
-            helperText={errors.realization_time?.message}
+            size="medium"
+            color="primary"
           />
         </div>
-        <Button type="submit" variant="contained" color="secondary">
-          Criar Atividade
-        </Button>
+        <div>
+          <Button
+            className="submitbutton"
+            schema={true}
+            children={"Criar atividade"}
+            onClick={handleForm}
+          />
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 
