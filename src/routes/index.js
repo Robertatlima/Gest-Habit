@@ -52,7 +52,6 @@ export const Router = () => {
         <Route path="/groupDetails">
           <Header logout />
           <Container>
-            <CardProfile />
             <GroupDetails />
           </Container>
         </Route>
