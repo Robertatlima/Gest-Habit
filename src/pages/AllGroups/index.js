@@ -30,15 +30,17 @@ const AllGroups = ({ group }) => {
   }, []);
 
   return (
-      <ListContainer>
-        {groupsAll.map((group) => {
+     
+      <>
+        {groupsAll?.map((group) => {
           return (
             <li className="card">
               <Group group={group} />
             </li>
           );
         })}
-      </ListContainer>
+        </>
+     
   );
 };
 export default AllGroups;
