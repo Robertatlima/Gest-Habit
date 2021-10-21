@@ -6,8 +6,10 @@ import { FiLogOut } from "react-icons/fi";
 import userEvent from "@testing-library/user-event";
 
 import { useUser } from "../../providers/User";
+import { useAuth } from "../../providers/Auth";
 const Header = ({ destiny, name, logout = false }) => {
   const { user, setUser } = useUser();
+  const { logoutF } = useAuth();
   return (
     <NavBarConteiner>
       <div className="header-conteudo">
@@ -40,7 +42,7 @@ const Header = ({ destiny, name, logout = false }) => {
             </Link>
           </nav>
         ) : (
-          <Link className="link-navBar-logout" to="/">
+          <Link onClick={() => logoutF()} className="link-navBar-logout" to="/">
             <FiLogOut />
             <p>Sair</p>
           </Link>
