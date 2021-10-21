@@ -116,7 +116,7 @@ export const ContainerMiddle = styled.div`
 `;
 export const ContainerFooter = styled.div`
   background-color: var(--color-group);
-  height: 1300px;
+  height: 1350px;
   padding-top: 25px;
   text-align: center;
   main,

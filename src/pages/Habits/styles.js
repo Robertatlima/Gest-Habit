@@ -30,13 +30,13 @@ export const ListContainer = styled.ul`
   max-width: 95%;
   li {
     align-items: center;
+    padding: 20px;
     justify-content: center;
     list-style-type: none;
     width: 100%;
     height: 112px;
     cursor: pointer;
     background-color: #5472bf;
-    padding: 20px;
     color: white;
     margin-top: 5px;
     border-radius: 10px;

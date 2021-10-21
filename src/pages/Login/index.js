@@ -10,6 +10,7 @@ import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
 import { Button } from "@material-ui/core";
 import Header from "../../components/NavBar";
+import { toast } from "react-toastify";
 import "./styles.css";
 const Login = () => {
   const { setUser } = useUser();
@@ -44,9 +45,11 @@ const Login = () => {
               username: response.data.username,
               email: response.data.email,
             });
+            toast.success("Olá, é sempre bom encontrar você por aqui =D");
           })
           .catch((err) => {
             console.log(err);
+            toast.error("Olá, é sempre bom encontrar você por aqui =D");
           });
 
         setAuth(true);

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Group from "../../components/GroupCard";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 const AllGroups = ({ group }) => {
   const [groupsAll, setGroupsAll] = useState([]);
   const token = localStorage.getItem("token");
@@ -24,18 +23,15 @@ const AllGroups = ({ group }) => {
   }, []);
 
   return (
-    <div>
-      <h1>Encontrar</h1>
-      <AiOutlineCloseCircle />
-
+    <>
       {groupsAll?.map((group) => {
         return (
-          <div key={group.id} className="card">
+          <li key={group.id} className="card">
             <Group group={group} />
-          </div>
+          </li>
         );
       })}
-    </div>
+    </>
   );
 };
 export default AllGroups;

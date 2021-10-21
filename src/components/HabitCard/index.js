@@ -3,6 +3,7 @@ import axios from "axios";
 import { useUser } from "../../providers/User";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const categories = [
   { id: 1, value: "Corpo e mente saudáveis" },
@@ -66,7 +67,11 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       .delete(`https://kenzie-habits.herokuapp.com/habits/${habit.id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => handleClickCloseCardModal())
+      .then(() => {
+        toast.success("Hábito excluído");
+
+        handleClickCloseCardModal();
+      })
       .catch((err) => {
         console.log(err);
       });

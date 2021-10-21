@@ -9,6 +9,7 @@ import { useGroups } from "../../providers/Groups";
 import Button from "../../components/Button";
 import CardProfile from "../../components/cardProfile";
 import AllGroups from "../AllGroups";
+import { toast } from "react-toastify";
 import {
   ButtonsContainer,
   Container,
@@ -31,7 +32,10 @@ const Groups = () => {
       .get("https://kenzie-habits.herokuapp.com/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setGroups(response.data))
+      .then((response) => {
+        setSubscribible(false);
+        setGroups(response.data);
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -40,9 +44,8 @@ const Groups = () => {
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-  const { setSubscribible } = useSubscribible(false);
-
   const [select, setSelect] = useState(false);
+  const { setSubscribible } = useSubscribible(select);
   const handleSelect = (value) => {
     setSelect(value);
     setSubscribible(value);

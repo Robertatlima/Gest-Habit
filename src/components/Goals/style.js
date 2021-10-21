@@ -4,6 +4,7 @@ export const Container = styled.div`
   .button {
     width: 335px;
     height: 40px;
+    cursor: pointer;
     background-color: #54bf9f;
     border: none;
     border-radius: 8px;
