@@ -41,16 +41,11 @@ const Habits = () => {
       <CardProfile />
       {auth ? (
         <C.ContainerPrincipal>
-          <C.ButtonsContainer>
-            <Button
-              className="button"
-              variant={"contained"}
-              onClick={handleClickInsertModal}
-            >
-              Novo Hábito
-            </Button>
-            {/* <TextField id="search" variant="outlined" /> */}
-          </C.ButtonsContainer>
+          <Button className="button" onClick={handleClickInsertModal}>
+            Novo Hábito
+          </Button>
+          {/* <TextField id="search" variant="outlined" /> */}
+
           <C.ListContainer>
             {habits?.map((habit) => {
               return (
