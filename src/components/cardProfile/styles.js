@@ -12,23 +12,28 @@ export const Container = styled.div`
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
-    padding: 0 0 0 50px;
     align-items: center;
     height: 150px;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 0 auto;
+
+    .editbutton {
+      margin: 0;
+    }
   }
   .profile-left {
+    margin: 0;
     img {
       width: 90px;
       border-radius: 50%;
     }
   }
   .profile-right {
+    margin: 0;
     h1 {
       font-size: 28px;
       color: #333333;
-      margin-right: 50px;
+      margin-left: 0;
     }
     span {
       color: #cfcfcf;
