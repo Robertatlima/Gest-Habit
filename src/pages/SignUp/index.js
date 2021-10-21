@@ -53,11 +53,18 @@ const SignUp = () => {
 
   return (
     <>
-      <Header destiny="login" name="register" />
+      <div className="navBar">
+        <Header destiny="login" name="register" />
+      </div>
       <C.RegisterContainer>
+        <div className="title">
+          <h1>
+            Gest <span>Habit</span>
+          </h1>
+        </div>
         <C.Container>
           <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-            <div>
+            <div className="formulario-title">
               <h2>Cadastrar</h2>
             </div>
             <div className="registerInput">

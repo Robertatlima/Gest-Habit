@@ -1,9 +1,10 @@
-import {Dialog } from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Button from "../Button";
 import GoalCardMini from "../GoalCardMini";
 import GoalsForm from "../GoalsForm";
+import { Container } from "./style";
 
 const Goals = ({ groupId }) => {
   const [goals, setGoals] = useState();
@@ -32,10 +33,10 @@ const Goals = ({ groupId }) => {
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
   return (
-    <div>
-      <Button variant="contained" onClick={handleClickInsertModal}>
+    <Container>
+      <button className="button" onClick={handleClickInsertModal}>
         Nova meta
-      </Button>
+      </button>
       <ul>
         {goals?.map((goal) => {
           return (
@@ -60,7 +61,7 @@ const Goals = ({ groupId }) => {
           handleClickCloseInsertModal={handleClickCloseInsertModal}
         />
       </Dialog>
-    </div>
+    </Container>
   );
 };
 export default Goals;
