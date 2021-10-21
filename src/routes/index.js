@@ -2,7 +2,6 @@ import { Switch, Route } from "react-router";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import Dashboard from "../pages/Dashboard";
 import Groups from "../pages/Groups";
 import AllGroups from "../pages/AllGroups";
 import Habits from "../pages/Habits";
@@ -10,7 +9,6 @@ import Header from "../components/NavBar";
 import GroupDetails from "../pages/GroupDetails";
 import CardProfile from "../components/cardProfile";
 import { Container } from "./style";
-import Front from "../components/FrontCover";
 
 export const Router = () => {
   return (
@@ -26,12 +24,8 @@ export const Router = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        {/* <Route path="/dashboard">
-          <Dashboard />
-        </Route> */}
         <Route exact path="/groups">
           <Header logout />
-          {/* <Front name="Grupos" /> */}
           <Container>
             <Groups />
           </Container>

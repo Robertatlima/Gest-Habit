@@ -37,6 +37,7 @@ const GroupDetailsCardMini = ({ groupId }) => {
     axios
       .post(
         `https://kenzie-habits.herokuapp.com/groups/${groupId}/subscribe/`,
+        {},
         {
           headers: { Authorization: `Bearer ${token}` },
         }

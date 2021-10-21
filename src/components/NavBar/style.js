@@ -6,10 +6,11 @@ export const NavBarConteiner = styled.div`
   width: 100%;
 
   .header-conteudo {
-    max-width: 1600px;
+    max-width: 1200px;
     height: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .logo {
     display: flex;
@@ -22,6 +23,7 @@ export const NavBarConteiner = styled.div`
     display: none;
   }
   .navBar {
+    margin: 0;
     color: #fff;
     text-decoration: none;
     display: flex;
@@ -41,11 +43,13 @@ export const NavBarConteiner = styled.div`
     }
   }
   .logo-name {
+    margin: 0;
   }
   .link-navBar {
     text-decoration: none;
   }
   .link-navBar-logout {
+    margin: 0;
     text-decoration: none;
     display: flex;
     color: var(--color-gray100);

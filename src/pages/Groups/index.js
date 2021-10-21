@@ -1,12 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/Auth";
-// import { useUser } from "../../providers/User";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Group from "../../components/GroupCard";
 import GroupsForm from "../../components/GroupsForm";
 import { Dialog } from "@mui/material";
-import { TextField } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
 import Button from "../../components/Button";
 import CardProfile from "../../components/cardProfile";
@@ -22,7 +20,6 @@ import { useSubscribible } from "../../providers/Subscribible";
 const Groups = () => {
   const history = useHistory();
 
-  //const { user } = useUser();
   const { auth } = useAuth();
   const { groups, setGroups } = useGroups();
   const [insertModal, setInsertModal] = useState(false);
@@ -43,7 +40,7 @@ const Groups = () => {
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-  const { subscribible, setSubscribible } = useSubscribible(false);
+  const { setSubscribible } = useSubscribible(false);
 
   const [select, setSelect] = useState(false);
   const handleSelect = (value) => {

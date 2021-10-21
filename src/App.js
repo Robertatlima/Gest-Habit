@@ -1,4 +1,3 @@
-import Header from "./components/NavBar";
 import { Router } from "./routes";
 
 const App = () => {

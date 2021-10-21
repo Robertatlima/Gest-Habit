@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useHistory } from "react-router";
 import { useGroupId } from "../../providers/GroupId";
 import * as C from "./styles";
@@ -6,8 +5,6 @@ import * as C from "./styles";
 const Group = ({ group }) => {
   const { setGroupId } = useGroupId();
   const history = useHistory();
-
-  const token = localStorage.getItem("token");
 
   const handleClick = () => {
     setGroupId(group.id);

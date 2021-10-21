@@ -1,9 +1,5 @@
-import { Button } from "@material-ui/core";
 import axios from "axios";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import CardProfile from "../../components/cardProfile";
-import Header from "../../components/NavBar";
 import { useUser } from "../../providers/User";
 import Habits from "../Habits";
 const Dashboard = () => {

@@ -1,5 +1,5 @@
 import * as C from "./styles";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,12 +8,9 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
-import logo from "../../assets/img/Logo.png";
-import svg from "../../assets/img/fundoHome.png";
 import { Button } from "@material-ui/core";
 import Header from "../../components/NavBar";
 import "./styles.css";
-// import Button from "../../components/Button";
 const Login = () => {
   const { setUser } = useUser();
   const { auth, setAuth } = useAuth();

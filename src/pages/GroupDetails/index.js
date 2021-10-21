@@ -5,7 +5,6 @@ import { useGroupId } from "../../providers/GroupId";
 
 import { Container, Content, ContainerPrincipal } from "./style.js";
 
-import Button from "../../components/Button";
 import { useHistory } from "react-router";
 import GroupDetailsCardMini from "../../components/GroupDetailsCardMini";
 

@@ -1,7 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import api from "../../services/api";
 const UserContext = createContext();
 
 const token = localStorage.getItem("token");
@@ -28,7 +27,7 @@ export const UserProvider = ({ children }) => {
       });
   }, []);
   const editUser = (name) => {
-    api
+    axios
       .patch(
         `users/${user_id}/`,
         {

@@ -1,5 +1,5 @@
 import * as C from "./styles";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";

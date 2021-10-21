@@ -1,7 +1,6 @@
 import { Dialog } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Button from "../Button";
 import GoalCardMini from "../GoalCardMini";
 import GoalsForm from "../GoalsForm";
 import { Container } from "./style";
