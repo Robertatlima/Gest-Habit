@@ -17,20 +17,17 @@ const GroupDetails = () => {
       {groupId !== undefined ? (
         <ContainerPrincipal>
           <Content>
-
-       <CardProfile />
+            <CardProfile />
             <GroupDetailsCardMini groupId={groupId} />
-            
           </Content>
 
           <Container>
             <div className="groupdetailscontainer">
-
               <div className="actScroll">
                 <Activities groupId={groupId} />
               </div>
 
-              <div className="actScroll">
+              <div className="metaScroll">
                 <Goals groupId={groupId} />
               </div>
             </div>

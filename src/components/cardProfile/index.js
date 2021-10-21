@@ -19,7 +19,7 @@ const CardProfile = () => {
             </div>
             <div className="profile-right">
               <h1>{user.username}</h1>
-              {/* <span>Editar perfil</span> */}
+              <span>Editar perfil</span>
             </div>
           </div>
           <hr />
