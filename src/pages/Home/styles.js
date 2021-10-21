@@ -24,12 +24,15 @@ export const ContainerTop = styled.div`
     margin-bottom: 20px;
   }
   img {
+    width: 100%;
     display: none;
     text-align: center;
   }
   .startbutton {
     margin-left: 0;
     margin: 0 auto;
+  }
+  .svgcontainer {
   }
 
   @media (min-width: 700px) {
@@ -45,7 +48,8 @@ export const ContainerTop = styled.div`
       margin-left: 0;
       align-items: flex-start;
       text-align: left;
-      width: 500px;
+      width: 100%;
+      max-width: 500px;
       margin-left: 100px;
     }
 
@@ -74,11 +78,16 @@ export const ContainerMiddle = styled.div`
     justify-content: center;
     text-align: center;
   }
+  aside {
+    width: 100%;
+    max-width: 500px;
+  }
   h1,
   p {
     margin-bottom: 20px;
   }
   img {
+    width: 100%;
     display: none;
     text-align: center;
   }
@@ -107,7 +116,7 @@ export const ContainerMiddle = styled.div`
 `;
 export const ContainerFooter = styled.div`
   background-color: var(--color-group);
-  height: 1050px;
+  height: 1300px;
   padding-top: 25px;
   text-align: center;
   main,
@@ -129,9 +138,20 @@ export const ContainerFooter = styled.div`
     border: 2px solid var(--color-gray50);
     margin-bottom: 20px;
   }
+  .nome {
+    margin: 0 auto;
+  }
+  a {
+    color: white;
+    font-size: 20px;
+  }
+  h3 {
+    margin-bottom: 10px;
+  }
   @media (min-width: 700px) {
     height: 550px;
     main {
+      max-width: 1200px;
       flex-direction: row;
       justify-content: center;
     }
@@ -140,9 +160,7 @@ export const ContainerFooter = styled.div`
       flex-direction: row-reverse;
       margin: 0;
     }
-    figcaption {
-      margin: 75px;
-    }
+
     h1 {
       margin: 0;
     }
@@ -150,7 +168,11 @@ export const ContainerFooter = styled.div`
       width: 400px;
       margin: 50px;
     }
+    img {
+      width: 150px;
+    }
     .centerContainer {
+      max-width: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -161,11 +183,9 @@ export const ContainerFooter = styled.div`
       flex-direction: row;
     }
   }
-  .nome {
-    margin: 0 auto;
-  }
-  a {
-    color: white;
-    font-size: 20px;
+
+  @media (min-width: 800px) {
+    .centerContainer {
+      max-width: 1200px;
   }
 `;

@@ -24,7 +24,7 @@ const Home = () => {
     <Container>
       <ContainerTop>
         <main>
-          <div>
+          <div className="svgcontainer">
             <img src={`${imgColab}`} alt="" />
           </div>
           <aside>
@@ -63,7 +63,6 @@ const Home = () => {
         <main>
           <div className="nome">
             <img src={`${imgRoberta}`} alt="Roberta" />
-
             <h3>Roberta Lima</h3>
             <a
               href="https://www.linkedin.com/in/robertatlima/"
@@ -76,7 +75,7 @@ const Home = () => {
           <aside>
             <div>
               <div className="centerContainer">
-                <h1>Criadores do gest Habit</h1>
+                <h1>Criadores do Gest Habit</h1>
                 <p>
                   Disponibilizado para sua apreciação pelos seguintes membros do
                   grupo
@@ -85,9 +84,7 @@ const Home = () => {
               <div className="centerBottomContainer">
                 <div className="nome">
                   <img src={`${imgFlavio}`} alt="Flávio" />
-
                   <h3>Flávio Santos</h3>
-
                   <a
                     href="https://www.linkedin.com/in/flaviopsantos/"
                     target="_blank"
@@ -98,9 +95,7 @@ const Home = () => {
                 </div>
                 <div className="nome">
                   <img src={`${imgRafael}`} alt="Rafael" />
-
                   <h3>Rafael Kammer</h3>
-
                   <a
                     href="https://www.linkedin.com/in/rafael-kammer/"
                     target="_blank"
@@ -114,9 +109,7 @@ const Home = () => {
           </aside>
           <div className="nome">
             <img src={`${imgGustavo}`} alt="Gustavo" />
-
             <h3>Gustavo Lira </h3>
-
             <a
               href="https://www.linkedin.com/in/gustavo-lira-ribeiro-gomes/"
               target="_blank"
