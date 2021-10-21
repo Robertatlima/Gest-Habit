@@ -6,12 +6,10 @@ export const NavBarConteiner = styled.div`
   width: 100%;
 
   .header-conteudo {
-    max-width: 1200px;
+    max-width: 1600px;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
   }
   .logo {
     display: flex;
@@ -27,6 +25,7 @@ export const NavBarConteiner = styled.div`
     color: #fff;
     text-decoration: none;
     display: flex;
+
     text-transform: uppercase;
     line-height: 18px;
     text-decoration: none;
@@ -41,7 +40,8 @@ export const NavBarConteiner = styled.div`
       color: var(--color-black);
     }
   }
-
+  .logo-name {
+  }
   .link-navBar {
     text-decoration: none;
   }

@@ -11,19 +11,20 @@ const Header = ({ destiny, name, logout = false }) => {
   return (
     <NavBarConteiner>
       <div className="header-conteudo">
-        <Link className="link-navBar" to="/">
-          <div className="logo">
-            <img className="img-logo" src={`${Logo}`} alt="Imagem Logo" />
-          </div>
-        </Link>
-        {logout ? (
-          <div className="header-mobile">
-            <h3>Olá, {user.username}</h3>
-          </div>
-        ) : (
-          ""
-        )}
-
+        <div className="logo-name">
+          <Link className="link-navBar" to="/">
+            <div className="logo">
+              <img className="img-logo" src={`${Logo}`} alt="Imagem Logo" />
+            </div>
+          </Link>
+          {logout ? (
+            <div className="header-mobile">
+              <h3>Olá, {user.username}</h3>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         {!logout ? (
           <nav className="navBar">
             <Link className="link-navBar" to="signup">
