@@ -1,23 +1,22 @@
 import { TextField } from "@material-ui/core";
 import axios from "axios";
+import Button from "../Button";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
-  const [edit, setEdit] = useState(false);
+  const [title, setTitle] = useState(activity.title);
 
-  const schema = yup.object().shape({
-    title: yup.string(),
-    realization_time: yup.string(),
-  });
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
+  };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const [realization_time, setRealization_time] = useState(
+    activity.realization_time.split("").slice(0, 10).join("")
+  );
+
+  const handleRealization_time = (event) => {
+    setRealization_time(event.target.value);
+  };
 
   const token = localStorage.getItem("token");
 
@@ -35,15 +34,13 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
       });
   };
 
-  const handleEdit = () => {
-    setEdit(!edit);
-  };
-
   const handleConfirm = (data) => {
     const requestData = {
-      title: data.title,
-      realization_time: `${data.realization_time}T00:00:00Z`,
+      title: title,
+      realization_time: `${realization_time}T18:00:00Z`,
     };
+
+    console.log(requestData);
 
     axios
       .patch(
@@ -54,7 +51,6 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         }
       )
       .then(() => {
-        setEdit(false);
         handleClickCloseCardModal();
       })
       .catch((err) => {
@@ -63,52 +59,58 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleConfirm)}>
-      <h1>Detalhes da atividade</h1>
-      <button onClick={handleClickCloseCardModal}>X - Fechar</button>
-      <h1>Título:</h1>
-      {edit ? (
-        <TextField
-          variant="outlined"
-          id="title"
-          label="Título"
-          margin="normal"
-          size="small"
-          color="secondary"
-          defaultValue={activity.title}
-          {...register("title")}
-          error={!!errors.title}
-          helperText={errors.title?.message}
-        />
-      ) : (
-        <p>{activity.title}</p>
-      )}
-      <h1>Data limite:</h1>
-      {edit ? (
-        <TextField
-          variant="outlined"
-          id="realization_time"
-          label="Data limite"
-          margin="normal"
-          size="small"
-          color="secondary"
-          defaultValue={activity.realization_time
-            .split("")
-            .slice(0, 10)
-            .join("")}
-          {...register("realization_time")}
-          error={!!errors.realization_time}
-          helperText={errors.realization_time?.message}
-        />
-      ) : (
-        <p>{activity.realization_time.split("").slice(0, 10).join("")}</p>
-      )}
-      <button onClick={handleConfirm}>Confirmar</button>
-      <button type="button" onClick={handleEdit}>
-        Editar
-      </button>
-      <button onClick={handleDelete}>Excluir</button>
-    </form>
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <h3>Descrição da atividade</h3>
+        <div type="button" onClick={handleClickCloseCardModal}>
+          X
+        </div>
+      </div>
+      <form>
+        <div className="input">
+          <TextField
+            fullWidth
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
+            id="title"
+            label="Nome da atividade"
+            margin="normal"
+            size="medium"
+            color="primary"
+          />
+        </div>
+        <div className="input">
+          <TextField
+            fullWidth
+            value={realization_time}
+            onChange={handleRealization_time}
+            variant="filled"
+            id="realization_time"
+            label="Data Limite"
+            margin="normal"
+            size="medium"
+            color="primary"
+          />
+        </div>
+        <div>
+          <Button
+            className="submitbutton"
+            schema={true}
+            children={"Salvar informações"}
+            onClick={handleConfirm}
+          />
+        </div>
+        <div>
+          <Button
+            className="submitbutton"
+            schema={false}
+            children={"Excluir atividade"}
+            onClick={handleDelete}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 
