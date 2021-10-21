@@ -1,21 +1,32 @@
 import styled from "styled-components";
 export const ContainerPrincipal = styled.div`
   display: flex;
+  margin: 0 auto;
+
   align-items: center;
   justify-content: center;
-  width: 100%;
-  @media (max-width: 650px) {
+  width: 1200px;
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
 export const Container = styled.div`
-  margin-top: 20px;
   .groupdetailscontainer {
     display: flex;
-
-    height: 550px;
-    @media (max-width: 650px) {
+    height: 670px;
+    @media (max-width: 1100px) {
       flex-direction: column;
+      .metaScroll {
+        margin-top: 20px;
+      }
+    }
+    @media (max-width: 850px) {
+      .actScroll {
+        margin-top: 20px;
+      }
+      .metaScroll {
+        margin-bottom: 10px;
+      }
     }
     .actScroll,
     .metaScroll {

@@ -63,6 +63,7 @@ const CardProfile = () => {
               <img src={`${imgProfile}`} alt="" />
             </div>
             <div className="profile-right">
+
               {edit ? (
                 <>
                   <h1>{user.username}</h1>
@@ -93,6 +94,7 @@ const CardProfile = () => {
                   />
                 </>
               )}
+
             </div>
           </div>
           <hr />
