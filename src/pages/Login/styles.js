@@ -8,6 +8,14 @@ export const LoginContainer = styled.div`
   background: var(--color-primary);
   display: flex;
   align-items: center;
+  /* background-image: url({${svg}}) no-repeat; */
+  @media (max-width: 700px) {
+    div h1 span {
+      color: var(--color-black);
+    }
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Container = styled.div`
@@ -15,10 +23,9 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
+  border-radius: 11px;
   width: 500px;
   height: 430px;
-  background: #fff;
   max-width: 499px;
   /* position: relative;
   top: calc(50vh - 250px); */
@@ -43,8 +50,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border-radius: 11px;
   }
   .loginInput {
+    background: inherit;
     width: 95%;
     height: 60px;
     text-decoration: none;
@@ -86,6 +95,18 @@ export const Container = styled.div`
       border: 2px solid var(--color-gray50);
       color: var(--color-gray50);
       transition: 0.5s;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .formulario {
+      background: inherit;
+    }
+    .formulario-title {
+      display: none;
+    }
+    .header {
+      display: none;
     }
   }
 `;

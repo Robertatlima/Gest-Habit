@@ -1,5 +1,5 @@
 import * as C from "./styles";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,13 +8,14 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useUser } from "../../providers/User";
 import { useAuth } from "../../providers/Auth";
-
+import logo from "../../assets/img/Logo.png";
+import svg from "../../assets/img/fundoHome.png";
 import { Button } from "@material-ui/core";
 import Header from "../../components/NavBar";
 // import Button from "../../components/Button";
 const Login = () => {
   const { setUser } = useUser();
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
 
   const history = useHistory();
 
@@ -57,16 +58,22 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
 
+  if (auth) {
+    history.push("/habits");
+  }
   return (
     <>
       <Header destiny="login" />
+
       <C.LoginContainer>
         <div>
-          <h1>Gest Habit</h1>
+          <h1>
+            Gest <span>Habit</span>
+          </h1>
         </div>
         <C.Container>
           <form className="formulario" onSubmit={handleSubmit(handleForm)}>
-            <div>
+            <div className="formulario-title">
               <h2>Login</h2>
             </div>
             <div className="loginInput">
