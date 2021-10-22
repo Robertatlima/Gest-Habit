@@ -5,6 +5,7 @@ export const ContainerTop = styled.div`
   background-color: var(--color-primary);
   height: 600px;
   width: 100%;
+  
   main {
     max-width: 1440px;
     padding: 30px;
@@ -18,6 +19,7 @@ export const ContainerTop = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    animation:ease-in 10s;
   }
   h1,
   p {
@@ -33,6 +35,7 @@ export const ContainerTop = styled.div`
     margin: 0 auto;
   }
   .svgcontainer {
+    
   }
 
   @media (min-width: 700px) {
@@ -187,5 +190,10 @@ export const ContainerFooter = styled.div`
   @media (min-width: 800px) {
     .centerContainer {
       max-width: 1200px;
+    }
   }
+  @keyframes moveToRight {
+   from {right: 0%;}
+   to{right: 50%;}
+}
 `;
