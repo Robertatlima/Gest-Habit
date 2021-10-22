@@ -3,6 +3,7 @@ import axios from "axios";
 import { useUser } from "../../providers/User";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const categories = [
   { id: 1, value: "Corpo e mente saudáveis" },
@@ -50,6 +51,7 @@ const GroupsForm = ({ handleClickInsertModal }) => {
       })
       .then((response) => {
         handleClickInsertModal();
+        toast.success("Grupo criado com sucesso!");
       })
       .catch((err) => {
         console.log(err);

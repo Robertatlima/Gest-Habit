@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const GoalCard = ({ goal, handleClickCloseCardModal }) => {
   const [title, setTitle] = useState(goal.title);
@@ -20,6 +21,9 @@ const GoalCard = ({ goal, handleClickCloseCardModal }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => handleClickCloseCardModal())
+      .then(() => {
+        toast.success("Meta excluída com sucesso!");
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -41,6 +45,7 @@ const GoalCard = ({ goal, handleClickCloseCardModal }) => {
       )
       .then(() => {
         handleClickCloseCardModal();
+        toast.success("Meta atualizada com sucesso!");
       })
       .catch((err) => {
         console.log(err);

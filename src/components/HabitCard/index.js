@@ -56,6 +56,7 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
       )
       .then(() => {
         handleClickCloseCardModal();
+        toast.success("Hábito atualizado com sucesso");
       })
       .catch((err) => {
         console.log(err);
@@ -68,7 +69,7 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        toast.success("Hábito excluído");
+        toast.success("Hábito excluído com sucesso!");
 
         handleClickCloseCardModal();
       })

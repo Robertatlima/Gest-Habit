@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
   const [title, setTitle] = useState();
@@ -28,6 +29,7 @@ const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
       })
       .then(() => {
         handleClickCloseInsertModal();
+        toast.success("Meta criada com sucesso!");
       })
       .catch((err) => {
         console.log(err);

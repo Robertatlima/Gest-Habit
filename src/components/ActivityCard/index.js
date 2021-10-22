@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
   const [title, setTitle] = useState(activity.title);
@@ -29,6 +30,9 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         }
       )
       .then(() => handleClickCloseCardModal())
+      .then(() => {
+        toast.success("Atividade excluída com sucesso!");
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -52,6 +56,7 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
       )
       .then(() => {
         handleClickCloseCardModal();
+        toast.success("Atividade atualizada com sucesso!");
       })
       .catch((err) => {
         console.log(err);

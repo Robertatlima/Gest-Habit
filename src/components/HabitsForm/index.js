@@ -3,6 +3,7 @@ import axios from "axios";
 import { useUser } from "../../providers/User";
 import Button from "../Button";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const categories = [
   { id: 1, value: "Corpo e mente saudáveis" },
@@ -51,6 +52,7 @@ const HabitsForm = ({ handleClickCloseInsertModal }) => {
       })
       .then(() => {
         handleClickCloseInsertModal();
+        toast.success("Hábito cadastrado com sucesso!");
       })
       .catch((err) => {
         console.log(err);

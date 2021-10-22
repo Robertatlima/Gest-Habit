@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import { useState } from "react";
 import Button from "../Button";
+import { toast } from "react-toastify";
 
 const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
   const [title, setTitle] = useState();
@@ -31,6 +32,7 @@ const ActivitiesForm = ({ groupId, handleClickCloseInsertModal }) => {
       })
       .then(() => {
         handleClickCloseInsertModal();
+        toast.success("Atividade criada com sucesso!");
       })
       .catch((err) => {
         console.log(err);

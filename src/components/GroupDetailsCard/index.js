@@ -4,6 +4,7 @@ import { useUser } from "../../providers/User";
 import Button from "../Button";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 
 const categories = [
   { id: 1, value: "Corpo e mente saudáveis" },
@@ -56,6 +57,7 @@ const GroupDetailsCard = ({ group, handleClickCloseModal }) => {
       )
       .then(() => {
         handleClickCloseModal();
+        toast.success("Grupo atualizado com sucesso");
       })
       .catch((err) => {
         console.log(err);
@@ -74,6 +76,7 @@ const GroupDetailsCard = ({ group, handleClickCloseModal }) => {
       )
       .then((response) => {
         handleClickCloseModal();
+        toast.success("Grupo excluído com sucesso");
         history.push("/groups");
       })
       .catch((err) => {

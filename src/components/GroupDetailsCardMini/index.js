@@ -6,6 +6,7 @@ import { Dialog } from "@mui/material";
 import GroupDetailsCard from "../GroupDetailsCard";
 import { useSubscribible } from "../../providers/Subscribible";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 
 const GroupDetailsCardMini = ({ groupId }) => {
   const history = useHistory();
@@ -43,6 +44,7 @@ const GroupDetailsCardMini = ({ groupId }) => {
         }
       )
       .then(() => {
+        toast.success("Inscrito no grupo com sucesso!");
         history.push("/groups");
       })
       .catch((err) => {
