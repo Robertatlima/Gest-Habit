@@ -1,5 +1,5 @@
-import { TextField } from "@material-ui/core";
 import axios from "axios";
+
 import Button from "../Button";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -37,6 +37,7 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         console.log(err);
       });
   };
+
 
   const handleConfirm = (data) => {
     const requestData = {
@@ -116,6 +117,7 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         </div>
       </form>
     </div>
+
   );
 };
 

@@ -1,3 +1,4 @@
+
 import {
   Container,
   ContainerTop,
@@ -14,6 +15,7 @@ import imgDuvida from "../../assets/img/duvida.png";
 import { useHistory } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
 
+
 const Home = () => {
   const history = useHistory();
   const handleComecar = () => {
@@ -26,6 +28,7 @@ const Home = () => {
         <main>
           <div className="svgcontainer">
             <img src={`${imgColab}`} alt="" />
+
           </div>
           <aside>
             <h1>Todos seus hábitos.</h1>
@@ -34,6 +37,7 @@ const Home = () => {
               Procure hábitos saudáveis, aprenda novos hábitos e pratique
               esportes. Com amigos é ainda melhor. Experimete!
             </p>
+
             <Button
               className="startbutton"
               schema={false}
@@ -54,9 +58,11 @@ const Home = () => {
               esportes. Com amigos é ainda melhor. Experimete!
             </p>
           </aside>
+
           <div>
             <img src={`${imgDuvida}`} alt="" />
           </div>
+
         </main>
       </ContainerMiddle>
       <ContainerFooter>
@@ -73,6 +79,7 @@ const Home = () => {
             </a>
           </div>
           <aside>
+
             <div>
               <div className="centerContainer">
                 <h1>Criadores do Gest Habit</h1>

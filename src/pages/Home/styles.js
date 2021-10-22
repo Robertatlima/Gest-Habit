@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const Container = styled.div``;
 
+
 export const ContainerTop = styled.div`
   background-color: var(--color-primary);
   height: 600px;
@@ -16,6 +17,7 @@ export const ContainerTop = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     justify-content: center;
     text-align: center;
   }
@@ -183,6 +185,7 @@ export const ContainerFooter = styled.div`
       flex-direction: row;
     }
   }
+
 
   @media (min-width: 800px) {
     .centerContainer {

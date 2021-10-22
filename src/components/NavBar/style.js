@@ -10,6 +10,7 @@ export const NavBarConteiner = styled.div`
     height: 60px;
     display: flex;
     align-items: center;
+
     justify-content: space-between;
   }
   .logo {
@@ -44,6 +45,7 @@ export const NavBarConteiner = styled.div`
   }
   .logo-name {
     margin: 0;
+
   }
   .link-navBar {
     text-decoration: none;
@@ -59,6 +61,7 @@ export const NavBarConteiner = styled.div`
       margin-left: 5px;
       color: var(--color-gray100);
     }
+
   }
   @media (max-width: 650px) {
     .header-mobile {
@@ -75,3 +78,4 @@ export const NavBarConteiner = styled.div`
     }
   }
 `;
+

@@ -58,6 +58,7 @@ const HabitCard = ({ habit, handleClickCloseCardModal }) => {
         handleClickCloseCardModal();
         toast.success("Hábito atualizado com sucesso");
       })
+
       .catch((err) => {
         console.log(err);
       });
