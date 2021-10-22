@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "../Button";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { TextField } from "@mui/material";
 
 const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
   const [title, setTitle] = useState(activity.title);
@@ -37,7 +38,6 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         console.log(err);
       });
   };
-
 
   const handleConfirm = (data) => {
     const requestData = {
@@ -117,7 +117,6 @@ const ActivityCard = ({ activity, handleClickCloseCardModal }) => {
         </div>
       </form>
     </div>
-
   );
 };
 
