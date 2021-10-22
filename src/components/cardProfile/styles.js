@@ -49,7 +49,9 @@ export const Container = styled.div`
     text-decoration: none;
   }
   .card-habits {
-    background-color: #d9b24a;
+    background: linear-gradient(-30deg, #d9b24a, #d96b69);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     width: 310px;
     display: flex;
     align-items: center;
@@ -66,7 +68,9 @@ export const Container = styled.div`
   .card-groups {
     margin-top: 10px;
     color: #ffffff;
-    background-color: #8092ed;
+    background: linear-gradient(-30deg, var(--color-goals), var(--color-group));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     display: flex;
     align-items: center;
     width: 310px;
