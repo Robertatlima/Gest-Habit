@@ -5,7 +5,9 @@ export const LoginContainer = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: var(--color-primary);
+  background: linear-gradient(-30deg, var(--color-goals), var(--color-group));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   display: flex;
   align-items: center;
   .mobile {
