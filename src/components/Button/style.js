@@ -11,9 +11,6 @@ export const Container = styled.div`
     font-size: 10px;
     font-weight: bold;
   }
-  @media (min-width: 140px) {
-    margin-left: 0px;
-  }
   margin-left: 15px;
   background-color: ${(props) => (props.schema ? "#8092ED" : "#6AD980")};
   color: var(--color-gray50);
