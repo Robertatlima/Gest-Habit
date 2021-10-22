@@ -1,8 +1,9 @@
-import { Button, Dialog } from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ActivitiesForm from "../ActivitiesForm";
 import ActivityCardMini from "../ActivityCardMini";
+import { Container } from "./styles.js";
 
 const Activities = ({ groupId }) => {
   const [activities, setActivities] = useState();
@@ -32,33 +33,37 @@ const Activities = ({ groupId }) => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickInsertModal}>
-        Nova atividade
-      </Button>
-      <ul>
-        {activities?.map((activity) => {
-          return (
-            <li key={activity.id}>
-              <ActivityCardMini
-                setActivities={setActivities}
-                setModal={setExcludeModal}
-                activity={activity}
-              />
-            </li>
-          );
-        })}
-      </ul>
-      <Dialog
-        // fullScreen={fullScreen}
-        open={insertModal}
-        onClose={handleClickCloseInsertModal}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <ActivitiesForm
-          groupId={groupId}
-          handleClickCloseInsertModal={handleClickCloseInsertModal}
-        />
-      </Dialog>
+      <Container>
+        <div className="cardAtv">
+          <button className="button" onClick={handleClickInsertModal}>
+            Nova atividade
+          </button>
+        </div>
+        <ul>
+          {activities?.map((activity) => {
+            return (
+              <li key={activity.id}>
+                <ActivityCardMini
+                  setActivities={setActivities}
+                  setModal={setExcludeModal}
+                  activity={activity}
+                />
+              </li>
+            );
+          })}
+        </ul>
+        <Dialog
+          // fullScreen={fullScreen}
+          open={insertModal}
+          onClose={handleClickCloseInsertModal}
+          aria-labelledby="responsive-dialog-title"
+        >
+          <ActivitiesForm
+            groupId={groupId}
+            handleClickCloseInsertModal={handleClickCloseInsertModal}
+          />
+        </Dialog>
+      </Container>
     </div>
   );
 };

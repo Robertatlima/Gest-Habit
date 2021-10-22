@@ -1,48 +1,58 @@
-import { useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { TextField, Button } from "@material-ui/core";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { MenuItem, TextField } from "@material-ui/core";
 import axios from "axios";
 import { useUser } from "../../providers/User";
+import Button from "../Button";
+import { useState } from "react";
+import { toast } from "react-toastify";
+
+const categories = [
+  { id: 1, value: "Corpo e mente saudáveis" },
+  { id: 2, value: "Foco, força e fé" },
+  { id: 3, value: "Me poupe" },
+  { id: 4, value: "Boa noite" },
+  { id: 5, value: "Ficando em forma" },
+  { id: 6, value: "Lar, doce lar" },
+];
 
 const HabitsForm = ({ handleClickCloseInsertModal }) => {
-  const history = useHistory();
+  const [title, setTitle] = useState();
 
-  const schema = yup.object().shape({
-    title: yup.string().required("Campo Obrigatório"),
-    category: yup.string().required("Campo Obrigatório"),
-    difficulty: yup.string().required("Campo Obrigatório"),
-    frequency: yup.string().required("Campo Obrigatório"),
-  });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const [category, setCategory] = useState("Boa noite");
+
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const [difficulty, setDifficulty] = useState("Fácil");
+
+  const [frequency, setFrequency] = useState("Diário");
 
   const { user } = useUser();
 
-  const handleForm = (data) => {
+  const token = localStorage.getItem("token");
+
+  const handleForm = () => {
     const requestData = {
-      title: data.title,
-      category: data.category,
-      difficulty: data.difficulty,
-      frequency: data.frequency,
+      title: title,
+      category: category,
+      difficulty: difficulty,
+      frequency: frequency,
       achieved: false,
       how_much_achieved: 0,
       user: user.id,
     };
-
-    const token = localStorage.getItem("token");
 
     axios
       .post("https://kenzie-habits.herokuapp.com/habits/", requestData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        history.push(`/habits`);
         handleClickCloseInsertModal();
+        toast.success("Hábito cadastrado com sucesso!");
       })
       .catch((err) => {
         console.log(err);
@@ -50,66 +60,114 @@ const HabitsForm = ({ handleClickCloseInsertModal }) => {
   };
 
   return (
-    <div>
-      <h1>Formulário de criação de hábito</h1>
-      <form className="formulario" onSubmit={handleSubmit(handleForm)}>
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <h3>Cadastrar hábito</h3>
+        <div type="button" onClick={handleClickCloseInsertModal}>
+          X
+        </div>
+      </div>
+      <form className="formulario">
         <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
             id="title"
-            label="Titulo"
+            label="Nome do hábito"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("title")}
-            error={!!errors.title}
-            helperText={errors.title?.message}
+            size="medium"
+            color="primary"
           />
         </div>
         <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            select
+            value={category}
+            onChange={handleCategory}
+            variant="filled"
             id="category"
             label="Categoria"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("category")}
-            error={!!errors.category}
-            helperText={errors.category?.message}
+            size="medium"
+            color="primary"
+          >
+            {categories.map((option) => (
+              <MenuItem key={option.id} value={option.value}>
+                {option.value}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+        <h3>Selecione a frequência:</h3>
+        <div className="input">
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={frequency !== "Diário"}
+            children={"Diário"}
+            onClick={() => {
+              setFrequency("Diário");
+            }}
+          />
+          <Button
+            type="button"
+            className="selectbutton centerbutton"
+            schema={frequency !== "Semanal"}
+            children={"Semanal"}
+            onClick={() => {
+              setFrequency("Semanal");
+            }}
+          />
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={frequency !== "Mensal"}
+            children={"Mensal"}
+            onClick={() => {
+              setFrequency("Mensal");
+            }}
           />
         </div>
+        <h3>Selecione a dificuldade:</h3>
         <div className="input">
-          <TextField
-            variant="outlined"
-            id="difficulty"
-            label="Dificuldade"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("difficulty")}
-            error={!!errors.difficulty}
-            helperText={errors.difficulty?.message}
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={difficulty !== "Fácil"}
+            children={"Fácil"}
+            onClick={() => {
+              setDifficulty("Fácil");
+            }}
           />
-        </div>
-        <div className="input">
-          <TextField
-            variant="outlined"
-            id="frequency"
-            label="Frequência"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("frequency")}
-            error={!!errors.frequency}
-            helperText={errors.frequency?.message}
+          <Button
+            type="button"
+            className="selectbutton centerbutton"
+            schema={difficulty !== "Médio"}
+            children={"Médio"}
+            onClick={() => {
+              setDifficulty("Médio");
+            }}
+          />
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={difficulty !== "Difícil"}
+            children={"Difícil"}
+            onClick={() => {
+              setDifficulty("Difícil");
+            }}
           />
         </div>
         <div>
-          <Button type="submit" variant="contained" color="secondary">
-            {" "}
-            Criar hábito
-          </Button>
+          <Button
+            className="submitbutton"
+            schema={false}
+            children={"Cadastrar hábito"}
+            onClick={handleForm}
+          />
         </div>
       </form>
     </div>

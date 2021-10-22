@@ -2,14 +2,12 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Group from "../../components/GroupCard";
-import * as C from "./styles.js";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-const AllGroups = () => {
+const AllGroups = ({ group }) => {
   const [groupsAll, setGroupsAll] = useState([]);
   const token = localStorage.getItem("token");
   const listGroups = () => {
     axios
-      .get("https://kabit-api.herokuapp.com/groups/", {
+      .get("https://kenzie-habits.herokuapp.com/groups/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -25,20 +23,15 @@ const AllGroups = () => {
   }, []);
 
   return (
-    <C.Container>
-      <div>
-        <h1>Encontrar</h1>
-        <AiOutlineCloseCircle />
-
-        {groupsAll.map((group) => {
-          return (
-            <div className="card">
-              <Group group={group} />
-            </div>
-          );
-        })}
-      </div>
-    </C.Container>
+    <>
+      {groupsAll?.map((group) => {
+        return (
+          <li key={group.id} className="card">
+            <Group group={group} />
+          </li>
+        );
+      })}
+    </>
   );
 };
 export default AllGroups;

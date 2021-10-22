@@ -1,0 +1,31 @@
+.detailscard {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 340px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: var(--color-black);
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.detailscard h3,
+.detailscard p,
+.detailscard div {
+  margin: 0;
+}
+
+.detailscard h3 {
+  margin: 20px 0;
+}
+
+.detailscard p {
+  margin-bottom: 20px;
+}
+
+.detailscard .editbutton {
+  margin-left: 0;
+  width: 210px;
+  height: 60px;
+}

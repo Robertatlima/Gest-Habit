@@ -3,6 +3,7 @@ import axios from "axios";
 import { useUser } from "../../providers/User";
 import Button from "../Button";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 
 const categories = [
@@ -14,20 +15,21 @@ const categories = [
   { id: 6, value: "Lar, doce lar" },
 ];
 
-const GroupsForm = ({ handleClickInsertModal }) => {
-  const [title, setTitle] = useState();
+const GroupDetailsCard = ({ group, handleClickCloseModal }) => {
+  const history = useHistory();
+  const [title, setTitle] = useState(group.name);
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
   };
 
-  const [category, setCategory] = useState("Boa noite");
+  const [category, setCategory] = useState(group.category);
 
   const handleCategory = (event) => {
     setCategory(event.target.value);
   };
 
-  const [description, setDescription] = useState();
+  const [description, setDescription] = useState(group.description);
 
   const handleDescription = (event) => {
     setDescription(event.target.value);
@@ -39,19 +41,43 @@ const GroupsForm = ({ handleClickInsertModal }) => {
     const requestData = {
       name: title,
       category: category,
-      description: "description",
+      description: description,
       user: user.id,
     };
 
     const token = localStorage.getItem("token");
 
     axios
-      .post("https://kenzie-habits.herokuapp.com/groups/", requestData, {
-        headers: { Authorization: `Bearer ${token}` },
+      .patch(
+        `https://kenzie-habits.herokuapp.com/groups/${group.id}/`,
+        requestData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then(() => {
+        handleClickCloseModal();
+        toast.success("Grupo atualizado com sucesso");
       })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleDelete = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .delete(
+        `https://kenzie-habits.herokuapp.com/groups/${group.id}/`,
+
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
-        handleClickInsertModal();
-        toast.success("Grupo criado com sucesso!");
+        handleClickCloseModal();
+        toast.success("Grupo excluído com sucesso");
+        history.push("/groups");
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +88,7 @@ const GroupsForm = ({ handleClickInsertModal }) => {
     <div className="modalContainer">
       <div className="modalHeader">
         <h3>Cadastrar grupo</h3>
-        <div type="button" onClick={handleClickInsertModal}>
+        <div type="button" onClick={handleClickCloseModal}>
           X
         </div>
       </div>
@@ -119,12 +145,20 @@ const GroupsForm = ({ handleClickInsertModal }) => {
           <Button
             className="submitbutton"
             schema={false}
-            children={"Cadastrar grupo"}
+            children={"Salvar informações"}
             onClick={handleForm}
+          />
+        </div>
+        <div>
+          <Button
+            className="submitbutton"
+            schema={true}
+            children={"Excluir grupo"}
+            onClick={handleDelete}
           />
         </div>
       </form>
     </div>
   );
 };
-export default GroupsForm;
+export default GroupDetailsCard;

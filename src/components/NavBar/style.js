@@ -1,50 +1,81 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const NavBarConteiner = styled.div`
-width: 100%;
-background-color: var(--color-gray50);
-display: flex;
-height: 50px;
-justify-content: space-between;
-align-items: center;
-ul{
+  background-color: #ffffff;
+
+  width: 100%;
+
+  .header-conteudo {
+    max-width: 1200px;
+    height: 60px;
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content:space-between;
-   
-  li{
-      margin: 50px;
-      color: var(--color-blackSmoky);
-      flex-basis: 1;
-      border: none;
-      list-style-type:none;
+
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    .img-logo {
+      width: 120px;
+    }
+  }
+  .header-mobile {
+    display: none;
+  }
+  .navBar {
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+
+    text-transform: uppercase;
+    line-height: 18px;
+    text-decoration: none;
+
+    h3 {
+      color: var(--color-gray100);
+      margin: 5px;
+      text-decoration: none;
+      font-family: roboto, sans-serif;
+    }
+    .link-navBar--login {
+      color: var(--color-black);
+    }
+  }
+  .logo-name {
+    margin: 0;
+
+  }
+  .link-navBar {
+    text-decoration: none;
+  }
+  .link-navBar-logout {
+    margin: 0;
+    text-decoration: none;
+    display: flex;
+    color: var(--color-gray100);
+    font-weight: bold;
+    font-size: 18px;
+    p {
+      margin-left: 5px;
+      color: var(--color-gray100);
+    }
+
+  }
+  @media (max-width: 650px) {
+    .header-mobile {
       display: flex;
-     img{
-          margin-left: 30px;
-          width: 120px;
-      }
-      div{
-        justify-content: space-evenly;
-        color: var(--color-blackSmoky);
-        text-decoration: none;
-        border: none;
-        font-size: 14px;
-        font-family: var(--font-primary);
-        align-content: flex-end;
+      h3 {
+        color: var(--color-gray100);
         font-weight: bold;
       }
-  }
-  li:nth-child(2){
-        color: var(--color-gray50);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 300px;
-        div{
-          margin: 20px;
-        }
     }
-}
+    .logo {
+      .img-logo {
+        display: none;
+      }
+    }
+  }
+`;
 
-`

@@ -1,19 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/Auth";
-// import { useUser } from "../../providers/User";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Group from "../../components/GroupCard";
 import GroupsForm from "../../components/GroupsForm";
 import { Dialog } from "@mui/material";
-import { Button } from "@material-ui/core";
 import { useGroups } from "../../providers/Groups";
-import * as C from "./styles.js";
+import Button from "../../components/Button";
+import CardProfile from "../../components/cardProfile";
+import AllGroups from "../AllGroups";
+import { toast } from "react-toastify";
+import {
+  ButtonsContainer,
+  Container,
+  ListContainer,
+  ContainerPrincipal,
+} from "./style.js";
+import { useSubscribible } from "../../providers/Subscribible";
 
 const Groups = () => {
   const history = useHistory();
 
-  //const { user } = useUser();
   const { auth } = useAuth();
   const { groups, setGroups } = useGroups();
   const [insertModal, setInsertModal] = useState(false);
@@ -25,7 +32,10 @@ const Groups = () => {
       .get("https://kenzie-habits.herokuapp.com/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setGroups(response.data))
+      .then((response) => {
+        setSubscribible(false);
+        setGroups(response.data);
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -34,22 +44,42 @@ const Groups = () => {
   const handleClickInsertModal = () => setInsertModal(!insertModal);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
+  const [select, setSelect] = useState(false);
+  const { setSubscribible } = useSubscribible(select);
+  const handleSelect = (value) => {
+    setSelect(value);
+    setSubscribible(value);
+  };
+
   return (
-    <C.Container>
+    <Container>
+      <CardProfile />
       {auth ? (
-        <div>
-          <Button
-            className="button"
-            variant={"contained"}
-            onClick={handleClickInsertModal}
-          >
-            Novo grupo
-          </Button>
-          <Link className="link" to="/allGroups">
-            <Button className="button" variant={"contained"}>
+        <ContainerPrincipal>
+          <ButtonsContainer>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={handleClickInsertModal}
+            >
+              Novo Grupo
+            </Button>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={() => handleSelect(true)}
+            >
               Encontrar
             </Button>
-          </Link>
+            <Button
+              className="button"
+              variant={"contained"}
+              onClick={() => handleSelect(false)}
+            >
+              Seus Grupos
+            </Button>
+            ?
+          </ButtonsContainer>
           <div>
             <Dialog
               open={insertModal}
@@ -63,21 +93,26 @@ const Groups = () => {
               )}
             </Dialog>
           </div>
-
-          <ul>
-            {groups?.map((group) => {
-              return (
-                <li key={group.id}>
-                  <Group group={group} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+          {select ? (
+            <ListContainer>
+              <AllGroups />
+            </ListContainer>
+          ) : (
+            <ListContainer>
+              {groups?.map((group) => {
+                return (
+                  <li key={group.id}>
+                    <Group group={group} />
+                  </li>
+                );
+              })}
+            </ListContainer>
+          )}
+        </ContainerPrincipal>
       ) : (
         history.push("/login")
       )}{" "}
-    </C.Container>
+    </Container>
   );
 };
 

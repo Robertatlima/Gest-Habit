@@ -1,29 +1,22 @@
-import { useHistory } from "react-router-dom";
-import { Button, TextField } from "@material-ui/core";
-
+import { TextField } from "@material-ui/core";
 import axios from "axios";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import Button from "../Button";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
-  const history = useHistory();
+  const [title, setTitle] = useState();
 
-  const schema = yup.object().shape({
-    title: yup.string().required("Campo Obrigatório"),
-    difficulty: yup.string().required("Campo Obrigatório"),
-  });
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
+  };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const [difficulty, setDifficulty] = useState("Fácil");
 
-  const handleForm = (data) => {
+  const handleForm = () => {
     const requestData = {
-      title: data.title,
-      difficulty: data.difficulty,
+      title: title,
+      difficulty: difficulty,
       how_much_achieved: 0,
       group: groupId,
     };
@@ -36,6 +29,7 @@ const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
       })
       .then(() => {
         handleClickCloseInsertModal();
+        toast.success("Meta criada com sucesso!");
       })
       .catch((err) => {
         console.log(err);
@@ -43,40 +37,67 @@ const GoalsForm = ({ groupId, handleClickCloseInsertModal }) => {
   };
 
   return (
-    <>
-      <h2>Nova Meta</h2>
-      <form onSubmit={handleSubmit(handleForm)}>
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <h3>Criar meta</h3>
+        <div type="button" onClick={handleClickCloseInsertModal}>
+          X
+        </div>
+      </div>
+      <form className="formulario">
         <div className="input">
           <TextField
-            variant="outlined"
+            fullWidth
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
             id="title"
-            label="Titulo"
+            label="Título da meta"
             margin="normal"
-            size="small"
-            color="secondary"
-            {...register("title")}
-            error={!!errors.title}
-            helperText={errors.title?.message}
+            size="medium"
+            color="primary"
           />
         </div>
+        <h3>Selecione a dificuldade:</h3>
         <div className="input">
-          <TextField
-            variant="outlined"
-            id="difficulty"
-            label="Dificuldade"
-            margin="normal"
-            size="small"
-            color="secondary"
-            {...register("difficulty")}
-            error={!!errors.difficulty}
-            helperText={errors.difficulty?.message}
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={difficulty !== "Fácil"}
+            children={"Fácil"}
+            onClick={() => {
+              setDifficulty("Fácil");
+            }}
+          />
+          <Button
+            type="button"
+            className="selectbutton centerbutton"
+            schema={difficulty !== "Médio"}
+            children={"Médio"}
+            onClick={() => {
+              setDifficulty("Médio");
+            }}
+          />
+          <Button
+            type="button"
+            className="selectbutton"
+            schema={difficulty !== "Difícil"}
+            children={"Difícil"}
+            onClick={() => {
+              setDifficulty("Difícil");
+            }}
           />
         </div>
-        <Button type="submit" variant="contained" color="secondary">
-          Criar meta
-        </Button>
+        <div>
+          <Button
+            className="submitbutton"
+            schema={true}
+            children={"Cadastrar hábito"}
+            onClick={handleForm}
+          />
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -5,11 +5,13 @@ export const Container = styled.div`
     width: 335px;
     height: 40px;
     cursor: pointer;
-    background-color: #54bf9f;
+    background-color: #bf5454;
     border: none;
     border-radius: 8px;
     color: white;
     font-weight: bold;
     font-size: 20px;
+  }
+  .cardActv {
   }
 `;
