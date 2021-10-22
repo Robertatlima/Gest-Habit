@@ -7,6 +7,9 @@ export const RegisterContainer = styled.div`
   background: var(--color-primary);
   display: flex;
   align-items: center;
+  background: linear-gradient(-30deg, var(--color-group), var(--color-primary));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 
   .title {
     display: none;
@@ -50,7 +53,7 @@ export const Container = styled.div`
   max-width: 499px;
   min-width: 300px;
   h1 {
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
   }
   h2 {

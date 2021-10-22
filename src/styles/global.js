@@ -1,3 +1,4 @@
+
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -136,5 +137,7 @@ p{
   }
 }
 
-`;
+`
+
+    ;
 export default GlobalStyle;

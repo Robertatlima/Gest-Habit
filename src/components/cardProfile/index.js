@@ -69,7 +69,6 @@ const CardProfile = () => {
                   <h1>{user.username}</h1>
                   <Button
                     className="editbutton"
-                    schema={edit}
                     children={"Editar perfil"}
                     onClick={handleEdit}
                   />
