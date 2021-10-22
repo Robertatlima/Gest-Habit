@@ -19,11 +19,6 @@ export const Container = styled.div`
 
     .editbutton {
       margin: 0;
-      background-color: transparent;
-      border: none;
-      color: var(--color-blacksmoky);
-      font-size: 14px;
-      text-align:center;
     }
   }
   .profile-left {
@@ -34,15 +29,8 @@ export const Container = styled.div`
     }
   }
   .profile-right {
-    width: 50%;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center; 
     h1 {
-      text-align: center;
-      width: 100%;
       font-size: 28px;
       color: #333333;
       margin-left: 0;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -14,29 +14,26 @@ export const ContainerPrincipal = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   margin-top: 15px;
-  width: 100%;
 `;
 
 export const ButtonsContainer = styled.div`
   @media (min-width: 700px){
     display: flex;
-    width: 100%;
-    margin-left: 8px;
+    margin-left: 30px;
+    width:820px;
     padding: 0;
     background-color: var(--color-gray50);
   }
-  margin-left: 0px;
   width:100%;
  
   .link {
     text-decoration: none;
   }
   .button {
-    @media (min-width: 1000px){
+    @media (min-width: 700px){
       width: 200px;
       position: sticky;
       text-align: center;
-      
     }
       width: 100%;
       font-size: 14px;
@@ -46,6 +43,10 @@ export const ButtonsContainer = styled.div`
     height: 60px;
     font-weight: bold;
   }
+  /* #search {
+    width: 70%;
+    height: 60px;
+  } */
 `;
 export const ListContainer = styled.ul`
  @media (min-width: 700px){
@@ -73,5 +74,10 @@ export const ListContainer = styled.ul`
     width: 100%;
   }
 }
-
+  /* @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  } */
 `;
