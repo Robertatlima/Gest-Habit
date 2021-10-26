@@ -39,7 +39,7 @@ const GroupsForm = ({ handleClickInsertModal }) => {
     const requestData = {
       name: title,
       category: category,
-      description: "description",
+      description: description,
       user: user.id,
     };
 
